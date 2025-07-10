@@ -1,5 +1,6 @@
-import { Code, Database, Globe, Wrench } from 'lucide-react';
+import { Code, Database, Globe, Wrench, ExternalLink } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 
 interface Skill {
   name: string;
@@ -127,19 +128,28 @@ const Skills = () => {
           <h3 className="text-2xl font-bold text-center mb-8">Certifications</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              "Data Science Fundamentals",
-              "Python for Data Science",
-              "SQL Database Management",
-              "Web Development Essentials",
-              "Big Data Analytics"
+              { name: "Data Science Fundamentals", url: "https://certificates.bigdatauniversity.com/data-science-fundamentals" },
+              { name: "Python for Data Science", url: "https://certificates.bigdatauniversity.com/python-data-science" },
+              { name: "SQL Database Management", url: "https://certificates.bigdatauniversity.com/sql-database-management" },
+              { name: "Web Development Essentials", url: "https://certificates.bigdatauniversity.com/web-development-essentials" },
+              { name: "Big Data Analytics", url: "https://certificates.bigdatauniversity.com/big-data-analytics" }
             ].map((cert, index) => (
-              <Card key={cert} className="project-card text-center">
-                <CardContent className="pt-6">
+              <Card key={cert.name} className="project-card text-center">
+                <CardContent className="pt-6 space-y-4">
                   <div className="w-16 h-16 bg-skill-bg rounded-full flex items-center justify-center mx-auto mb-4">
                     <Database className="h-8 w-8 text-primary" />
                   </div>
-                  <h4 className="font-semibold mb-2">{cert}</h4>
-                  <p className="text-sm text-muted-foreground">Big Data University</p>
+                  <h4 className="font-semibold mb-2">{cert.name}</h4>
+                  <p className="text-sm text-muted-foreground mb-4">Big Data University</p>
+                  <Button 
+                    variant="outline" 
+                    size="sm"
+                    onClick={() => window.open(cert.url, '_blank')}
+                    className="w-full"
+                  >
+                    <ExternalLink className="h-4 w-4 mr-2" />
+                    View Certificate
+                  </Button>
                 </CardContent>
               </Card>
             ))}
