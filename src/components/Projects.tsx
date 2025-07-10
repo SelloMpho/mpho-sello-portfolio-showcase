@@ -36,7 +36,7 @@ const Projects = () => {
         "Calendar integration"
       ],
       icon: Book,
-      github: "https://github.com/mpho-sello/tutorial-booking",
+      github: "https://github.com/SelloMpho?tab=projects",
       demo: "https://tutorial-booking-demo.netlify.app",
       category: "Web Development"
     },
@@ -55,7 +55,7 @@ const Projects = () => {
         "Multi-language support"
       ],
       icon: Scale,
-      github: "https://github.com/mpho-sello/legal-assistance",
+      github: "https://github.com/SelloMpho?tab=projects",
       demo: "https://legal-assistance-demo.netlify.app",
       category: "Full-Stack Development"
     },
@@ -74,7 +74,7 @@ const Projects = () => {
         "SMS notifications"
       ],
       icon: Heart,
-      github: "https://github.com/mpho-sello/sanitary-donation",
+      github: "https://github.com/SelloMpho?tab=projects",
       demo: "https://sanitary-donation-demo.netlify.app",
       category: "Social Impact"
     }
