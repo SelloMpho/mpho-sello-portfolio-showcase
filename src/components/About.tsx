@@ -1,0 +1,134 @@
+import { Globe, Heart, MessageCircle, User } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+
+const About = () => {
+  const languages = ['English', 'Sesotho', 'Xhosa'];
+  const softSkills = [
+    'Problem Solving',
+    'Team Collaboration',
+    'Critical Thinking',
+    'Communication',
+    'Adaptability',
+    'Time Management'
+  ];
+
+  return (
+    <section id="about" className="py-20 section-bg">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gradient mb-4">
+            About Me
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            Get to know more about my background, skills, and passion for technology
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Profile Section */}
+          <div className="space-y-8">
+            <div className="animate-slide-up">
+              <h3 className="text-2xl font-bold mb-6 flex items-center">
+                <User className="mr-3 h-6 w-6 text-primary" />
+                Profile Summary
+              </h3>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                I'm a dedicated final-year ICT student at Sol Plaatje University with a passion 
+                for technology and innovation. My journey in information and communication technology 
+                has equipped me with a diverse skill set spanning programming, web development, 
+                and data analysis.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                I thrive on solving complex problems through code and creating digital solutions 
+                that make a meaningful impact. My goal is to leverage technology to build applications 
+                that improve people's lives and contribute to the digital transformation of our society.
+              </p>
+            </div>
+
+            {/* Languages */}
+            <div className="animate-slide-up">
+              <h4 className="text-xl font-semibold mb-4 flex items-center">
+                <Globe className="mr-3 h-5 w-5 text-primary" />
+                Languages
+              </h4>
+              <div className="flex flex-wrap gap-3">
+                {languages.map((language) => (
+                  <span 
+                    key={language}
+                    className="px-4 py-2 bg-skill-bg rounded-full text-sm font-medium"
+                  >
+                    {language}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Skills Cards */}
+          <div className="space-y-6">
+            <Card className="project-card">
+              <CardHeader>
+                <CardTitle className="flex items-center">
+                  <Heart className="mr-3 h-5 w-5 text-primary" />
+                  Core Values
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2 text-muted-foreground">
+                  <li>• Continuous learning and growth</li>
+                  <li>• Innovation through technology</li>
+                  <li>• Collaborative problem-solving</li>
+                  <li>• Ethical and responsible development</li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="project-card">
+              <CardHeader>
+                <CardTitle className="flex items-center">
+                  <MessageCircle className="mr-3 h-5 w-5 text-primary" />
+                  Soft Skills
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-2 gap-3">
+                  {softSkills.map((skill) => (
+                    <div 
+                      key={skill}
+                      className="flex items-center space-x-2"
+                    >
+                      <div className="w-2 h-2 bg-primary rounded-full"></div>
+                      <span className="text-sm text-muted-foreground">{skill}</span>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
+        {/* Stats Section */}
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="text-center">
+            <div className="text-3xl font-bold text-primary mb-2">4+</div>
+            <div className="text-sm text-muted-foreground">Programming Languages</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl font-bold text-primary mb-2">10+</div>
+            <div className="text-sm text-muted-foreground">Projects Completed</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl font-bold text-primary mb-2">3+</div>
+            <div className="text-sm text-muted-foreground">Years of Study</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl font-bold text-primary mb-2">5+</div>
+            <div className="text-sm text-muted-foreground">Certifications</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default About;
