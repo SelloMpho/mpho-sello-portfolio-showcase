@@ -26,20 +26,26 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="animate-fade-in">
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6">
-            Hi, I'm <span className="text-gradient">Mpho Sello</span>
-          </h1>
-          <h2 className="text-xl sm:text-2xl lg:text-3xl text-muted-foreground mb-8 font-medium">
-            Aspiring ICT Professional & Developer
-          </h2>
-          <p className="text-lg sm:text-xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
-            Final-year ICT student passionate about creating innovative solutions through 
-            programming, web development, and data analysis. Welcome to my digital portfolio.
-          </p>
+        <div>
+          <div className="animate-slide-in-left">
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6">
+              Hi, I'm <span className="text-gradient-animated">Mpho Sello</span>
+            </h1>
+          </div>
+          <div className="animate-slide-in-right">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl text-muted-foreground mb-8 font-medium">
+              Aspiring ICT Professional & Developer
+            </h2>
+          </div>
+          <div className="animate-scale-in">
+            <p className="text-lg sm:text-xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
+              Final-year ICT student passionate about creating innovative solutions through 
+              programming, web development, and data analysis. Welcome to my digital portfolio.
+            </p>
+          </div>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 animate-scale-in">
             <Button 
               size="lg" 
               className="portfolio-gradient text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all duration-300"
@@ -59,7 +65,7 @@ const Hero = () => {
           </div>
 
           {/* Social Links */}
-          <div className="flex justify-center space-x-6">
+          <div className="flex justify-center space-x-6 animate-scale-in">
             <a 
               href="https://linkedin.com/in/mpho-sello" 
               target="_blank" 
