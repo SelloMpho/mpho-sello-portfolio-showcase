@@ -56,6 +56,7 @@ const Projects = () => {
       ],
       icon: Scale,
       github: "https://github.com/mpho-sello/legal-assistance",
+      demo: "https://legal-assistance-demo.netlify.app",
       category: "Full-Stack Development"
     },
     {
@@ -74,6 +75,7 @@ const Projects = () => {
       ],
       icon: Heart,
       github: "https://github.com/mpho-sello/sanitary-donation",
+      demo: "https://sanitary-donation-demo.netlify.app",
       category: "Social Impact"
     }
   ];
