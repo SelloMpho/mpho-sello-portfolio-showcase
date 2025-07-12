@@ -67,7 +67,7 @@ const Hero = () => {
           {/* Social Links */}
           <div className="flex justify-center space-x-6 animate-scale-in">
             <a 
-              href="https://linkedin.com/in/mpho-sello" 
+              href="https://www.linkedin.com/in/mpho-sello-692193241" 
               target="_blank" 
               rel="noopener noreferrer"
               className="p-3 rounded-full bg-card hover:bg-primary hover:text-primary-foreground transition-all duration-300 shadow-md hover:shadow-lg"
