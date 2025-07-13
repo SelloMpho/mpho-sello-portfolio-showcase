@@ -16,7 +16,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a 
-                href="https://linkedin.com/in/mpho-sello-692193241" 
+                href="https://www.linkedin.com/in/mpho-sello-692193241" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="p-2 bg-background/10 hover:bg-background/20 rounded-lg transition-colors duration-200"
@@ -24,7 +24,7 @@ const Footer = () => {
                 <Linkedin className="h-5 w-5" />
               </a>
               <a 
-                href="https://github.com/SelloMpho" 
+                href="https://github.com/SelloMpho?tab=projects" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="p-2 bg-background/10 hover:bg-background/20 rounded-lg transition-colors duration-200"

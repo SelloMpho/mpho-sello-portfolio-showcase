@@ -118,7 +118,7 @@ const Contact = () => {
                   <Button 
                     variant="outline" 
                     size="lg"
-                    onClick={() => window.open('https://linkedin.com/in/mpho-sello', '_blank')}
+                    onClick={() => window.open('https://www.linkedin.com/in/mpho-sello-692193241', '_blank')}
                   >
                     <Linkedin className="h-5 w-5 mr-2" />
                     LinkedIn
@@ -126,7 +126,7 @@ const Contact = () => {
                   <Button 
                     variant="outline" 
                     size="lg"
-                    onClick={() => window.open('https://github.com/mpho-sello', '_blank')}
+                    onClick={() => window.open('https://github.com/SelloMpho?tab=projects', '_blank')}
                   >
                     <Github className="h-5 w-5 mr-2" />
                     GitHub
