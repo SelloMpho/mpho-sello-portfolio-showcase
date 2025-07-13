@@ -83,7 +83,7 @@ const Hero = () => {
               <Github className="h-6 w-6" />
             </a>
             <a 
-              href="mailto:mpho.sello@example.com"
+              href="mailto:mpho.sello@student.spu.ac.za"
               className="p-3 rounded-full bg-card hover:bg-primary hover:text-primary-foreground transition-all duration-300 shadow-md hover:shadow-lg"
             >
               <Mail className="h-6 w-6" />
