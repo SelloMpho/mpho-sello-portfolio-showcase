@@ -33,25 +33,25 @@ const Contact = () => {
 
   const references = [
     {
-      name: "Dr. Sarah Johnson",
+      name: "Dr. Mziwoxolo Gulwa",
+      position: "Lecturer - ICT Department",
+      institution: "Sol Plaatje University",
+      email: "mziwoxolo.gulwa@spu.ac.za",
+      phone: "+27 53 491 9329"
+    },
+    {
+      name: "Mr. Lethabo Victor Molefe",
       position: "Senior Lecturer - ICT Department",
       institution: "Sol Plaatje University",
-      email: "s.johnson@spu.ac.za",
-      phone: "+27 53 491 0000"
+      email: "lethabo.molefe@spu.ac.za",
+      phone: "+27 53 491 9360"
     },
     {
-      name: "Prof. Michael Chen",
-      position: "Head of Computer Science",
+      name: "Mr. Mxolisi Mqhubeka",
+      position: "Senior Lecturer - ICT Department",
       institution: "Sol Plaatje University",
-      email: "m.chen@spu.ac.za",
-      phone: "+27 53 491 0001"
-    },
-    {
-      name: "Ms. Thandiwe Mthembu",
-      position: "Industry Supervisor",
-      institution: "Tech Solutions SA",
-      email: "thandiwe@techsolutions.co.za",
-      phone: "+27 11 123 4567"
+      email: "mxolisi.mqhubeka@spu.ac.za",
+      phone: "+27 53 491 9364"
     }
   ];
 
@@ -82,7 +82,7 @@ const Contact = () => {
                   <div>
                     <p className="font-medium">Email</p>
                     <p className="text-muted-foreground">mpho.sello@student.spu.ac.za</p>
-                    <p className="text-muted-foreground">mpho.sello.dev@gmail.com</p>
+                    <p className="text-muted-foreground">mphosello999@gmail.com</p>
                   </div>
                 </div>
 
@@ -92,7 +92,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-medium">Phone</p>
-                    <p className="text-muted-foreground">+27 73 456 7890</p>
+                    <p className="text-muted-foreground">+27 79 950 8946</p>
                   </div>
                 </div>
 
