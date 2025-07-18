@@ -10,6 +10,15 @@ const Hero = () => {
     }
   };
 
+  const downloadResume = () => {
+    const link = document.createElement('a');
+    link.href = '/Mpho_Sello_Resume.pdf';
+    link.download = 'Mpho_Sello_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -58,6 +67,7 @@ const Hero = () => {
               variant="outline" 
               size="lg"
               className="text-lg px-8 py-6 border-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+              onClick={downloadResume}
             >
               <Download className="mr-2 h-5 w-5" />
               Download Resume
