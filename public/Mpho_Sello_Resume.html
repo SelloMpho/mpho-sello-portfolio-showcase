@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mpho Sello - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20mm;
+            background: white;
+        }
+        
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #2563eb;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .name {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #1e40af;
+            margin-bottom: 10px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        .contact-info span {
+            display: flex;
+            align-items: center;
+        }
+        
+        .section {
+            margin-bottom: 25px;
+        }
+        
+        .section-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #1e40af;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .profile-summary {
+            text-align: justify;
+            font-size: 1em;
+            line-height: 1.7;
+            color: #374151;
+        }
+        
+        .project-item, .education-item, .certification-item {
+            margin-bottom: 15px;
+        }
+        
+        .project-title, .education-title, .certification-title {
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 5px;
+        }
+        
+        .project-description, .education-details {
+            color: #6b7280;
+            margin-left: 0;
+        }
+        
+        .education-period {
+            font-style: italic;
+            color: #9ca3af;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .skill-category {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #2563eb;
+        }
+        
+        .skill-category-title {
+            font-weight: bold;
+            color: #1e40af;
+            margin-bottom: 8px;
+        }
+        
+        .skill-list {
+            color: #4b5563;
+            font-size: 0.95em;
+        }
+        
+        .interests-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .interest-item {
+            background: #eff6ff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            color: #1e40af;
+            font-weight: 500;
+            border: 1px solid #dbeafe;
+        }
+        
+        .reference-item {
+            background: #f9fafb;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border-left: 3px solid #10b981;
+        }
+        
+        .reference-name {
+            font-weight: bold;
+            color: #1f2937;
+        }
+        
+        .reference-title {
+            color: #6b7280;
+            font-style: italic;
+        }
+        
+        .reference-contact {
+            color: #4b5563;
+            font-size: 0.9em;
+        }
+        
+        @media print {
+            body {
+                padding: 15mm;
+            }
+            
+            .section {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 class="name">MPHO SELLO</h1>
+        <div class="contact-info">
+            <span>📍 Bloemfontein, Free State, South Africa</span>
+            <span>📱 067 668 7955</span>
+            <span>✉️ sellompho1601@gmail.com</span>
+            <span>📧 202324276@spu.ac.za</span>
+            <span>🔗 linkedin.com/in/mpho-sello-692193241</span>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Profile Summary</h2>
+        <p class="profile-summary">
+            Final-year Diploma in ICT student with a strong passion for using technology to drive development, streamline systems, and improve digital communication. I am confident in Python and skilled in SQL, Java, JavaScript, with growing experience in web development using Django, HTML, and CSS. Currently learning React and Power BI to enhance my capabilities in front-end development and data visualization.
+        </p>
+        <br>
+        <p class="profile-summary">
+            I have a strong interest in ERP systems, particularly SAP, and a genuine desire to grow in a dynamic business systems environment. My strengths include analytical thinking, problem-solving, and attention to detail, supported by effective communication skills and the ability to work collaboratively within a team. I am adaptable, motivated to learn new technologies, and committed to professional growth in the IT field.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Projects</h2>
+        <div class="project-item">
+            <div class="project-title">• Tutorial Booking System</div>
+            <div class="project-description">A web-based application that allows students to view available tutors, book tutorial sessions, and track their bookings.</div>
+        </div>
+        <div class="project-item">
+            <div class="project-title">• Legal Assistance Booking App</div>
+            <div class="project-description">An application where clients can view legal services, book appointments with lawyers, and manage their bookings.</div>
+        </div>
+        <div class="project-item">
+            <div class="project-title">• Sanitary Services Donation Platform</div>
+            <div class="project-description">A platform developed to assist underprivileged students, enables schools to request sanitary pad donations and allows NGOs, individuals, and companies to contribute.</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Education</h2>
+        <div class="education-item">
+            <div class="education-title">Sol Plaatje University</div>
+            <div class="education-details">Diploma in Information and Communication Technology (ICT)</div>
+            <div class="education-period">2023 – Present | Kimberley, South Africa</div>
+        </div>
+        <div class="education-item">
+            <div class="education-title">Motheo TVET College</div>
+            <div class="education-details">Motor Trade Studies</div>
+            <div class="education-period">2020 – 2021 | Bloemfontein, South Africa</div>
+        </div>
+        <div class="education-item">
+            <div class="education-title">Bainsvlei Combined School</div>
+            <div class="education-details">National Senior Certificate (Matric)</div>
+            <div class="education-period">Completed in 2019 | Bloemfontein, South Africa</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Certifications</h2>
+        <div class="certification-item">• Python 101 for Data Science – Big Data University</div>
+        <div class="certification-item">• Big Data 101 – Big Data University</div>
+        <div class="certification-item">• Spark Fundamentals I – Big Data University</div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <div class="skill-category-title">Programming Languages</div>
+                <div class="skill-list">Python (confident), Java, JavaScript</div>
+            </div>
+            <div class="skill-category">
+                <div class="skill-category-title">Web Development</div>
+                <div class="skill-list">HTML, CSS, Django</div>
+            </div>
+            <div class="skill-category">
+                <div class="skill-category-title">Currently Learning</div>
+                <div class="skill-list">React, Power BI</div>
+            </div>
+            <div class="skill-category">
+                <div class="skill-category-title">Data & Analytics</div>
+                <div class="skill-list">SQL</div>
+            </div>
+            <div class="skill-category">
+                <div class="skill-category-title">Business Systems</div>
+                <div class="skill-list">Strong interest in SAP and ERP platforms</div>
+            </div>
+            <div class="skill-category">
+                <div class="skill-category-title">Design & Tools</div>
+                <div class="skill-list">Figma, VS Code, Jupyter Notebook</div>
+            </div>
+        </div>
+        <div class="skill-category" style="margin-top: 15px;">
+            <div class="skill-category-title">Soft Skills</div>
+            <div class="skill-list">Analytical thinking, collaboration, adaptability, communication, attention to detail</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Interests</h2>
+        <div class="interests-list">
+            <div class="interest-item">Data Analysis</div>
+            <div class="interest-item">Problem Solving</div>
+            <div class="interest-item">Application Development</div>
+            <div class="interest-item">Sports</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Languages</h2>
+        <div class="skill-category">
+            <div class="skill-list">
+                <strong>English</strong> – Fluent<br>
+                <strong>Sesotho</strong> – Fluent<br>
+                <strong>Xhosa</strong> – Conversational
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">References</h2>
+        <div class="reference-item">
+            <div class="reference-name">Miss Oratile Molefe</div>
+            <div class="reference-title">Project Supervisor</div>
+            <div class="reference-contact">
+                Email: omolefe743@gmail.com<br>
+                Phone: 072 375 4357
+            </div>
+        </div>
+        <div class="reference-item">
+            <div class="reference-name">Mr Tharollo Motaung</div>
+            <div class="reference-title">Tutor</div>
+            <div class="reference-contact">
+                Email: solutiont211@gmail.com<br>
+                Phone: 071 465 4280
+            </div>
+        </div>
+    </div>
+</body>
+</html>

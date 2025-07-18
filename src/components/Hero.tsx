@@ -12,8 +12,9 @@ const Hero = () => {
 
   const downloadResume = () => {
     const link = document.createElement('a');
-    link.href = '/Mpho_Sello_Resume.pdf';
-    link.download = 'Mpho_Sello_Resume.pdf';
+    link.href = '/Mpho_Sello_Resume.html';
+    link.download = 'Mpho_Sello_Resume.html';
+    link.target = '_blank';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
