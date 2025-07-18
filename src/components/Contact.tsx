@@ -34,24 +34,24 @@ const Contact = () => {
   const references = [
     {
       name: "Miss Oratile Molefe",
-      position: "Project Supervisor",
-      institution: "",
-      email: "omolefe743@gmail.com",
-      phone: "+27 72 375 4357"
-    },
-    {
-      name: "Mr. Tharollo Motaung",
-      position: "Tutor",
-      institution: "",
-      email: "solutiont211@gmail.com",
-      phone: "+27 71 465 4280"
-    },
-    {
-      name: "Mr. Qolani Moloi",
-      position: "Tutor",
+      position: "Lecturer - ICT D",
       institution: "Sol Plaatje University",
-      email: "202348544@spu.ac.za",
-      phone: "+27 67 004 1827"
+      email: "mziwoxolo.gulwa@spu.ac.za",
+      phone: "+27 53 491 9329"
+    },
+    {
+      name: "Mr. Lethabo Victor Molefe",
+      position: "Senior Lecturer - ICT Department",
+      institution: "Sol Plaatje University",
+      email: "lethabo.molefe@spu.ac.za",
+      phone: "+27 53 491 9360"
+    },
+    {
+      name: "Mr. Mxolisi Mqhubeka",
+      position: "Senior Lecturer - ICT Department",
+      institution: "Sol Plaatje University",
+      email: "mxolisi.mqhubeka@spu.ac.za",
+      phone: "+27 53 491 9364"
     }
   ];
 
@@ -81,8 +81,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-medium">Email</p>
-                    <p className="text-muted-foreground">mpho.sello@student.spu.ac.za</p>
-                    <p className="text-muted-foreground">mphosello999@gmail.com</p>
+                      <p className="text-muted-foreground">202324276@spu.ac.za</p>
+                    <p className="text-muted-foreground">sellompho1601@gmail.com</p>
                   </div>
                 </div>
 
@@ -92,7 +92,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-medium">Phone</p>
-                    <p className="text-muted-foreground">+27 79 950 8946</p>
+                    <p className="text-muted-foreground">+27 67 668 7955</p>
                   </div>
                 </div>
 
@@ -102,7 +102,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-medium">Location</p>
-                    <p className="text-muted-foreground">Kimberley, South Africa</p>
+                    <p className="text-muted-foreground">Bloemfontein, South Africa</p>
                   </div>
                 </div>
               </CardContent>
