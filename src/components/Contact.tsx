@@ -34,24 +34,24 @@ const Contact = () => {
   const references = [
     {
       name: "Miss Oratile Molefe",
-      position: "Lecturer - ICT D",
+      position: "Project Supervisor",
       institution: "Sol Plaatje University",
-      email: "mziwoxolo.gulwa@spu.ac.za",
-      phone: "+27 53 491 9329"
+      email: "202307080@spu.ac.za",
+      phone: "+27 72 375 4357"
     },
     {
-      name: "Mr. Lethabo Victor Molefe",
-      position: "Senior Lecturer - ICT Department",
+      name: "Mr. Tharollo Motaung",
+      position: "Tutor",
       institution: "Sol Plaatje University",
-      email: "lethabo.molefe@spu.ac.za",
-      phone: "+27 53 491 9360"
+      email: "solution211@gmail",
+      phone: "+27 71 454 2800"
     },
     {
-      name: "Mr. Mxolisi Mqhubeka",
-      position: "Senior Lecturer - ICT Department",
+      name: "Mr. Qolani Moloi",
+      position: "Tutor",
       institution: "Sol Plaatje University",
-      email: "mxolisi.mqhubeka@spu.ac.za",
-      phone: "+27 53 491 9364"
+      email: "202348544@spu.ac.za",
+      phone: "+27 67 044 1827"
     }
   ];
 
