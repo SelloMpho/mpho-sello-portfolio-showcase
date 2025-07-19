@@ -12,15 +12,15 @@ import { SiTypescript } from 'react-icons/si';
 
 const Skills = () => {
   const skills = [
-    { icon: FaPython, name: 'Python' },
-    { icon: FaJava, name: 'Java' },
-    { icon: FaJsSquare, name: 'JavaScript' },
-    { icon: FaHtml5, name: 'HTML5' },
-    { icon: FaCss3Alt, name: 'CSS3' },
-    { icon: SiTypescript, name: 'TypeScript' },
-    { icon: FaReact, name: 'React' },
-    { icon: FaNodeJs, name: 'Node.js' },
-    { icon: FaGitAlt, name: 'Git' }
+    { icon: FaPython, name: 'Python', color: '#3776ab' },
+    { icon: FaJava, name: 'Java', color: '#f89820' },
+    { icon: FaJsSquare, name: 'JavaScript', color: '#f7df1e' },
+    { icon: FaHtml5, name: 'HTML5', color: '#e34f26' },
+    { icon: FaCss3Alt, name: 'CSS3', color: '#1572b6' },
+    { icon: SiTypescript, name: 'TypeScript', color: '#3178c6' },
+    { icon: FaReact, name: 'React', color: '#61dafb' },
+    { icon: FaNodeJs, name: 'Node.js', color: '#339933' },
+    { icon: FaGitAlt, name: 'Git', color: '#f05032' }
   ];
 
   // Duplicate the array for seamless loop
@@ -40,13 +40,36 @@ const Skills = () => {
 
         {/* Marquee Container */}
         <div className="relative">
-          <div className="flex animate-marquee space-x-16 md:space-x-24">
+          {/* Gradient overlays for seamless edges */}
+          <div className="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-background to-transparent z-10"></div>
+          <div className="absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-background to-transparent z-10"></div>
+          
+          <div className="flex animate-marquee space-x-12 md:space-x-16 lg:space-x-20">
             {duplicatedSkills.map((skill, index) => {
               const IconComponent = skill.icon;
               return (
                 <div
                   key={`${skill.name}-${index}`}
-                  className="flex-shrink-0 text-6xl md:text-8xl text-primary/70 hover:text-primary transition-colors duration-300"
+                  className="flex-shrink-0 text-5xl md:text-7xl lg:text-8xl transition-all duration-300 hover:scale-110 cursor-pointer"
+                  style={{ color: skill.color }}
+                >
+                  <IconComponent />
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Skills Grid for smaller screens (optional fallback) */}
+        <div className="mt-16 md:hidden">
+          <div className="grid grid-cols-3 gap-8 max-w-md mx-auto">
+            {skills.map((skill, index) => {
+              const IconComponent = skill.icon;
+              return (
+                <div
+                  key={skill.name}
+                  className="flex justify-center items-center text-4xl transition-all duration-300 hover:scale-110 cursor-pointer"
+                  style={{ color: skill.color }}
                 >
                   <IconComponent />
                 </div>
