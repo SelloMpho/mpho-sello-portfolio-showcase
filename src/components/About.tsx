@@ -39,9 +39,11 @@ const About = () => {
                 and data analysis.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                I thrive on solving complex problems through code and creating digital solutions 
-                that make a meaningful impact. My goal is to leverage technology to build applications 
-                that improve people's lives and contribute to the digital transformation of our society.
+                I thrive on solving complex problems through code, data analysis, and 
+                creating digital solutions that make a meaningful impact. 
+                My goal is to leverage technology to build applications and 
+                uncover insights through data that improve people's lives and 
+                contribute to the digital transformation of our society.
               </p>
             </div>
 
