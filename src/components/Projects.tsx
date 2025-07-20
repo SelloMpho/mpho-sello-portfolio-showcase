@@ -51,8 +51,7 @@ const Projects = () => {
         "Secure document upload",
         "Video consultation integration",
         "Case management dashboard",
-        "Billing and invoicing",
-        "Multi-language support"
+        "Billing and invoicing"
       ],
       icon: Scale,
       github: "https://github.com/SelloMpho?tab=projects",
@@ -61,14 +60,13 @@ const Projects = () => {
     },
     {
       id: 3,
-      title: "Sanitary Services Donation Platform",
-      description: "Community-driven platform facilitating donations and distribution of sanitary products to underserved communities.",
-      longDescription: "A social impact application designed to address period poverty by connecting donors with communities in need. The platform includes inventory management, distribution tracking, and impact analytics to ensure effective resource allocation.",
+      title: "HerCycle Sanitary Services Donation Platform",
+      description: "Higher Institutions-driven platform facilitating donations and distribution of sanitary products to underserved students.",
+      longDescription: "A social impact application designed to address period poverty by connecting donors with students in need. The platform includes inventory management, distribution tracking, and impact analytics to ensure effective resource allocation.",
       technologies: ["Python", "Django", "PostgreSQL", "HTML", "CSS", "JavaScript"],
       features: [
         "Donation tracking system",
         "Inventory management",
-        "Geographic distribution mapping",
         "Impact analytics dashboard",
         "Volunteer coordination",
         "SMS notifications"
