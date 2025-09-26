@@ -100,47 +100,65 @@ const OverlayCopy = ({ subheading, heading }: OverlayCopyProps) => {
   );
 };
 
-const ProjectContent = () => (
-  <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 px-4 pb-24 pt-12 md:grid-cols-12">
-    <h2 className="col-span-1 text-3xl font-bold md:col-span-4 text-foreground">
-      Building Tomorrow's Solutions
-    </h2>
-    <div className="col-span-1 md:col-span-8">
-      <p className="mb-4 text-xl text-muted-foreground md:text-2xl">
-        As a final-year ICT student, I focus on creating innovative solutions through 
-        modern web technologies, data analysis, and problem-solving approaches that 
-        make a real difference.
-      </p>
-      <p className="mb-8 text-xl text-muted-foreground md:text-2xl">
-        Every project is an opportunity to learn, grow, and contribute to the digital landscape.
-      </p>
-      <Button className="portfolio-gradient text-lg px-8 py-6">
-        View Projects <FiArrowUpRight className="inline ml-2" />
-      </Button>
-    </div>
-  </div>
-);
+const ProjectContent = () => {
+  const scrollToProjects = () => {
+    const element = document.getElementById('projects');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
-const SkillContent = () => (
-  <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 px-4 pb-24 pt-12 md:grid-cols-12">
-    <h2 className="col-span-1 text-3xl font-bold md:col-span-4 text-foreground">
-      Technical Expertise
-    </h2>
-    <div className="col-span-1 md:col-span-8">
-      <p className="mb-4 text-xl text-muted-foreground md:text-2xl">
-        Proficient in modern programming languages and frameworks including Python, 
-        Java, JavaScript, React, and more. Always eager to learn new technologies 
-        and apply them to real-world challenges.
-      </p>
-      <p className="mb-8 text-xl text-muted-foreground md:text-2xl">
-        From frontend development to data analysis, I bring versatility to every project.
-      </p>
-      <Button className="portfolio-gradient text-lg px-8 py-6">
-        Explore Skills <FiArrowUpRight className="inline ml-2" />
-      </Button>
+  return (
+    <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 px-4 pb-24 pt-12 md:grid-cols-12">
+      <h2 className="col-span-1 text-3xl font-bold md:col-span-4 text-foreground">
+        Building Tomorrow's Solutions
+      </h2>
+      <div className="col-span-1 md:col-span-8">
+        <p className="mb-4 text-xl text-muted-foreground md:text-2xl">
+          As a final-year ICT student, I focus on creating innovative solutions through 
+          modern web technologies, data analysis, and problem-solving approaches that 
+          make a real difference.
+        </p>
+        <p className="mb-8 text-xl text-muted-foreground md:text-2xl">
+          Every project is an opportunity to learn, grow, and contribute to the digital landscape.
+        </p>
+        <Button onClick={scrollToProjects} className="portfolio-gradient text-lg px-8 py-6">
+          View Projects <FiArrowUpRight className="inline ml-2" />
+        </Button>
+      </div>
     </div>
-  </div>
-);
+  );
+};
+
+const SkillContent = () => {
+  const scrollToSkills = () => {
+    const element = document.getElementById('skills');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 px-4 pb-24 pt-12 md:grid-cols-12">
+      <h2 className="col-span-1 text-3xl font-bold md:col-span-4 text-foreground">
+        Technical Expertise
+      </h2>
+      <div className="col-span-1 md:col-span-8">
+        <p className="mb-4 text-xl text-muted-foreground md:text-2xl">
+          Proficient in modern programming languages and frameworks including Python, 
+          Java, JavaScript, React, and more. Always eager to learn new technologies 
+          and apply them to real-world challenges.
+        </p>
+        <p className="mb-8 text-xl text-muted-foreground md:text-2xl">
+          From frontend development to data analysis, I bring versatility to every project.
+        </p>
+        <Button onClick={scrollToSkills} className="portfolio-gradient text-lg px-8 py-6">
+          Explore Skills <FiArrowUpRight className="inline ml-2" />
+        </Button>
+      </div>
+    </div>
+  );
+};
 
 const ExperienceContent = () => (
   <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 px-4 pb-24 pt-12 md:grid-cols-12">
@@ -156,9 +174,6 @@ const ExperienceContent = () => (
       <p className="mb-8 text-xl text-muted-foreground md:text-2xl">
         Combining theoretical knowledge with hands-on experience to prepare for the future.
       </p>
-      <Button className="portfolio-gradient text-lg px-8 py-6">
-        Learn More <FiArrowUpRight className="inline ml-2" />
-      </Button>
     </div>
   </div>
 );

@@ -15,8 +15,12 @@ const Index = () => {
       <Hero />
       <About />
       <TextParallaxContentExample />
-      <Projects />
-      <Skills />
+      <div id="projects">
+        <Projects />
+      </div>
+      <div id="skills">
+        <Skills />
+      </div>
       <Education />
       <Contact />
       <Footer />
