@@ -10,8 +10,8 @@ const Certificates = () => {
     { icon: FaDatabase, name: 'Data Certificate', color: '#0f9d58', pdf: '/certificates/DataCertificate.pdf' },
     { icon: FaCertificate, name: 'eCertificate', color: '#f4b400', pdf: '/certificates/eCertificate.pdf' },
     { icon: FaAward, name: 'FNB App Awards 2025', color: '#00a4e4', pdf: '/certificates/FNB_App_of_the_Year_Awards_Academy_2025.pdf' },
-    { icon: SiIbm, name: 'IBM Certificate', color: '#054ada', pdf: '/certificates/IBM_First_Certificate.pdf' },
-    { icon: SiIbm, name: 'IBM Python', color: '#054ada', pdf: '/certificates/IBM_PY0101EN_Certificate_IBM_SkillsBuild.pdf' },
+    { icon: FaLaptopCode, name: 'IBM Certificate', color: '#054ada', pdf: '/certificates/IBM_First_Certificate.pdf' },
+    { icon: FaLaptopCode, name: 'IBM Python', color: '#054ada', pdf: '/certificates/IBM_PY0101EN_Certificate_IBM_SkillsBuild.pdf' },
     { icon: SiOracle, name: 'Oracle Analytics Cloud', color: '#f80000', pdf: '/certificates/Oracle_Analytics_Cloud_22025.pdf' },
     { icon: SiApachespark, name: 'Spark Fundamentals', color: '#e25a1c', pdf: '/certificates/Spark_Fundamentals_I_Certificate.pdf' },
   ];
