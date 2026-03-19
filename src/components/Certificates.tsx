@@ -1,22 +1,16 @@
-import {
-  SiOracle,
-  SiApachespark,
-} from 'react-icons/si';
-import { FaAward, FaDatabase, FaCertificate, FaCloud, FaLaptopCode } from 'react-icons/fa';
+import { FaExternalLinkAlt } from 'react-icons/fa';
 
 const Certificates = () => {
   const certificates = [
-    { icon: FaCloud, name: 'Cloud Database', color: '#4285f4', pdf: '/certificates/CLOUD_DATABASE.pdf' },
-    { icon: FaDatabase, name: 'Data Certificate', color: '#0f9d58', pdf: '/certificates/DataCertificate.pdf' },
-    { icon: FaCertificate, name: 'eCertificate', color: '#f4b400', pdf: '/certificates/eCertificate.pdf' },
-    { icon: FaAward, name: 'FNB App Awards 2025', color: '#00a4e4', pdf: '/certificates/FNB_App_of_the_Year_Awards_Academy_2025.pdf' },
-    { icon: FaLaptopCode, name: 'IBM Certificate', color: '#054ada', pdf: '/certificates/IBM_First_Certificate.pdf' },
-    { icon: FaLaptopCode, name: 'IBM Python', color: '#054ada', pdf: '/certificates/IBM_PY0101EN_Certificate_IBM_SkillsBuild.pdf' },
-    { icon: SiOracle, name: 'Oracle Analytics Cloud', color: '#f80000', pdf: '/certificates/Oracle_Analytics_Cloud_22025.pdf' },
-    { icon: SiApachespark, name: 'Spark Fundamentals', color: '#e25a1c', pdf: '/certificates/Spark_Fundamentals_I_Certificate.pdf' },
+    { name: 'Cloud Database', pdf: '/certificates/CLOUD_DATABASE.pdf' },
+    { name: 'Data Certificate', pdf: '/certificates/DataCertificate.pdf' },
+    { name: 'eCertificate', pdf: '/certificates/eCertificate.pdf' },
+    { name: 'FNB App Awards 2025', pdf: '/certificates/FNB_App_of_the_Year_Awards_Academy_2025.pdf' },
+    { name: 'IBM Certificate', pdf: '/certificates/IBM_First_Certificate.pdf' },
+    { name: 'IBM Python (SkillsBuild)', pdf: '/certificates/IBM_PY0101EN_Certificate_IBM_SkillsBuild.pdf' },
+    { name: 'Oracle Analytics Cloud', pdf: '/certificates/Oracle_Analytics_Cloud_22025.pdf' },
+    { name: 'Spark Fundamentals I', pdf: '/certificates/Spark_Fundamentals_I_Certificate.pdf' },
   ];
-
-  const duplicatedCerts = [...certificates, ...certificates];
 
   return (
     <section id="certificates" className="py-20 section-bg overflow-hidden">
@@ -30,51 +24,32 @@ const Certificates = () => {
           </p>
         </div>
 
-        {/* Marquee Container */}
-        <div className="relative">
-          <div className="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-background to-transparent z-10"></div>
-          <div className="absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-background to-transparent z-10"></div>
-
-          <div className="flex animate-marquee space-x-12 md:space-x-16 lg:space-x-20">
-            {duplicatedCerts.map((cert, index) => {
-              const IconComponent = cert.icon;
-              return (
-                <a
-                  key={`${cert.name}-${index}`}
-                  href={cert.pdf}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-shrink-0 text-5xl md:text-7xl lg:text-8xl transition-all duration-300 hover:scale-110 cursor-pointer"
-                  style={{ color: cert.color }}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {certificates.map((cert) => (
+            <a
+              key={cert.name}
+              href={cert.pdf}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block rounded-xl overflow-hidden border border-border bg-card shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+            >
+              <div className="relative w-full h-56 bg-muted">
+                <iframe
+                  src={`${cert.pdf}#toolbar=0&navpanes=0&scrollbar=0`}
                   title={cert.name}
-                >
-                  <IconComponent />
-                </a>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Grid for smaller screens */}
-        <div className="mt-16 md:hidden">
-          <div className="grid grid-cols-3 gap-8 max-w-md mx-auto">
-            {certificates.map((cert) => {
-              const IconComponent = cert.icon;
-              return (
-                <a
-                  key={cert.name}
-                  href={cert.pdf}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex justify-center items-center text-4xl transition-all duration-300 hover:scale-110 cursor-pointer"
-                  style={{ color: cert.color }}
-                  title={cert.name}
-                >
-                  <IconComponent />
-                </a>
-              );
-            })}
-          </div>
+                  className="w-full h-full pointer-events-none"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-transparent group-hover:bg-foreground/5 transition-colors duration-300" />
+              </div>
+              <div className="p-4 flex items-center justify-between gap-2">
+                <span className="text-sm font-medium text-foreground truncate">
+                  {cert.name}
+                </span>
+                <FaExternalLinkAlt className="text-xs text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
+              </div>
+            </a>
+          ))}
         </div>
       </div>
     </section>
