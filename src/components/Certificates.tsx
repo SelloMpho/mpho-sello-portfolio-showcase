@@ -1,10 +1,8 @@
 import {
-  SiIbm,
   SiOracle,
   SiApachespark,
-  SiGooglecloud,
 } from 'react-icons/si';
-import { FaAward, FaDatabase, FaCertificate, FaCloud } from 'react-icons/fa';
+import { FaAward, FaDatabase, FaCertificate, FaCloud, FaLaptopCode } from 'react-icons/fa';
 
 const Certificates = () => {
   const certificates = [
