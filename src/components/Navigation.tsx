@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import DarkModeToggle from './DarkModeToggle';
+import GooeyNav from './GooeyNav';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,17 +44,19 @@ const Navigation = () => {
             Mpho Sello
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <button
-                key={item.href}
-                onClick={() => scrollToSection(item.href)}
-                className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
-              >
-                {item.label}
-              </button>
-            ))}
+          {/* Desktop Navigation - GooeyNav */}
+          <div className="hidden md:flex items-center gap-4">
+            <GooeyNav
+              items={navItems}
+              particleCount={15}
+              particleDistances={[90, 10]}
+              particleR={100}
+              initialActiveIndex={0}
+              animationTime={600}
+              timeVariance={300}
+              colors={[1, 2, 3, 1, 2, 3, 1, 4]}
+              onItemClick={scrollToSection}
+            />
             <DarkModeToggle />
           </div>
 
