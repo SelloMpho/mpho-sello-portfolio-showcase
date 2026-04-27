@@ -1,4 +1,4 @@
-import { FaExternalLinkAlt } from 'react-icons/fa';
+import { FaExternalLinkAlt, FaFilePdf } from 'react-icons/fa';
 
 const Certificates = () => {
   const certificates = [
@@ -33,13 +33,24 @@ const Certificates = () => {
               rel="noopener noreferrer"
               className="group block rounded-xl overflow-hidden border border-border bg-card shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
             >
-              <div className="relative w-full h-56 bg-muted">
-                <iframe
-                  src={`${cert.pdf}#toolbar=0&navpanes=0&scrollbar=0`}
-                  title={cert.name}
+              <div className="relative w-full h-56 bg-muted overflow-hidden">
+                <object
+                  data={`${cert.pdf}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
+                  type="application/pdf"
                   className="w-full h-full pointer-events-none"
-                  loading="lazy"
-                />
+                  aria-label={cert.name}
+                >
+                  {/* Fallback shown when the browser or an extension blocks PDF embedding */}
+                  <div className="w-full h-full flex flex-col items-center justify-center gap-3 bg-gradient-to-br from-primary/10 to-accent/10 p-4 text-center">
+                    <FaFilePdf className="text-5xl text-primary" />
+                    <span className="text-sm font-medium text-foreground">
+                      {cert.name}
+                    </span>
+                    <span className="text-xs text-muted-foreground">
+                      Click to view certificate
+                    </span>
+                  </div>
+                </object>
                 <div className="absolute inset-0 bg-transparent group-hover:bg-foreground/5 transition-colors duration-300" />
               </div>
               <div className="p-4 flex items-center justify-between gap-2">
@@ -51,6 +62,10 @@ const Certificates = () => {
             </a>
           ))}
         </div>
+
+        <p className="text-center text-sm text-muted-foreground mt-8">
+          If previews don't load, your browser extension (e.g. ad-blocker) may be blocking PDF embeds. Click any card to open the full certificate.
+        </p>
       </div>
     </section>
   );
