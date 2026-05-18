@@ -143,7 +143,7 @@ const Hero = () => {
           </div>
           <div className="mt-6 flex items-center justify-between text-[10px] uppercase tracking-[0.3em] text-muted-foreground max-w-md mx-auto">
             <span>SPU · ICT</span>
-            <span>EST. 2024</span>
+            <span>EST. 2027</span>
           </div>
         </div>
       </div>
