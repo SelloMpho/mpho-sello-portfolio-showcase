@@ -1,4 +1,6 @@
 import { FaExternalLinkAlt, FaFilePdf } from 'react-icons/fa';
+import { Backlight } from '@/components/ui/backlight';
+import { TweetCard } from '@/components/ui/tweet-card';
 
 const Certificates = () => {
   const certificates = [
@@ -24,42 +26,44 @@ const Certificates = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {certificates.map((cert) => (
-            <a
-              key={cert.name}
-              href={cert.pdf}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block rounded-xl overflow-hidden border border-border bg-card shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-            >
-              <div className="relative w-full h-56 bg-muted overflow-hidden">
-                <object
-                  data={`${cert.pdf}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
-                  type="application/pdf"
-                  className="w-full h-full pointer-events-none"
-                  aria-label={cert.name}
+            <Backlight key={cert.name} className="rounded-2xl">
+              <TweetCard className="group h-full">
+                <a
+                  href={cert.pdf}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
                 >
-                  {/* Fallback shown when the browser or an extension blocks PDF embedding */}
-                  <div className="w-full h-full flex flex-col items-center justify-center gap-3 bg-gradient-to-br from-primary/10 to-accent/10 p-4 text-center">
-                    <FaFilePdf className="text-5xl text-primary" />
-                    <span className="text-sm font-medium text-foreground">
+                  <div className="relative w-full h-56 bg-muted overflow-hidden">
+                    <object
+                      data={`${cert.pdf}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
+                      type="application/pdf"
+                      className="w-full h-full pointer-events-none"
+                      aria-label={cert.name}
+                    >
+                      <div className="w-full h-full flex flex-col items-center justify-center gap-3 bg-gradient-to-br from-primary/10 to-accent/10 p-4 text-center">
+                        <FaFilePdf className="text-5xl text-primary" />
+                        <span className="text-sm font-medium text-foreground">
+                          {cert.name}
+                        </span>
+                        <span className="text-xs text-muted-foreground">
+                          Click to view certificate
+                        </span>
+                      </div>
+                    </object>
+                    <div className="absolute inset-0 bg-transparent group-hover:bg-foreground/5 transition-colors duration-300" />
+                  </div>
+                  <div className="p-4 flex items-center justify-between gap-2">
+                    <span className="text-sm font-medium text-foreground truncate">
                       {cert.name}
                     </span>
-                    <span className="text-xs text-muted-foreground">
-                      Click to view certificate
-                    </span>
+                    <FaExternalLinkAlt className="text-xs text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
                   </div>
-                </object>
-                <div className="absolute inset-0 bg-transparent group-hover:bg-foreground/5 transition-colors duration-300" />
-              </div>
-              <div className="p-4 flex items-center justify-between gap-2">
-                <span className="text-sm font-medium text-foreground truncate">
-                  {cert.name}
-                </span>
-                <FaExternalLinkAlt className="text-xs text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
-              </div>
-            </a>
+                </a>
+              </TweetCard>
+            </Backlight>
           ))}
         </div>
 
