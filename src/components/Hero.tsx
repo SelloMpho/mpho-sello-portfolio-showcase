@@ -125,26 +125,29 @@ const Hero = () => {
 
         {/* Right — Portrait */}
         <div className="lg:col-span-5 relative animate-slide-in-right">
-          <div className="relative aspect-[3/4] w-full max-w-md mx-auto">
-            <div className="absolute -inset-4 border border-foreground/10" />
-            <div className="absolute inset-0 overflow-hidden">
-              <img
-                src={heroImage}
-                alt="Mpho Sello portrait"
-                className="grayscale-image h-full w-full object-cover scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-r from-background/40 via-transparent to-transparent" />
-            </div>
-            {/* Corner ticks */}
-            <span className="absolute -top-2 -left-2 h-4 w-4 border-t border-l border-foreground/60" />
-            <span className="absolute -top-2 -right-2 h-4 w-4 border-t border-r border-foreground/60" />
-            <span className="absolute -bottom-2 -left-2 h-4 w-4 border-b border-l border-foreground/60" />
-            <span className="absolute -bottom-2 -right-2 h-4 w-4 border-b border-r border-foreground/60" />
-          </div>
-          <div className="mt-6 flex items-center justify-between text-[10px] uppercase tracking-[0.3em] text-muted-foreground max-w-md mx-auto">
-            <span>SPU · ICT</span>
-            <span>EST. 2027</span>
+          <div className="relative w-full max-w-md mx-auto">
+            <TiltedCard
+              imageSrc={heroImage}
+              altText="Mpho Sello portrait"
+              captionText="Mpho Sello — ICT"
+              containerHeight="520px"
+              containerWidth="100%"
+              imageHeight="520px"
+              imageWidth="390px"
+              rotateAmplitude={12}
+              scaleOnHover={1.08}
+              showMobileWarning={false}
+              showTooltip={true}
+              displayOverlayContent={true}
+              overlayContent={
+                <div className="flex h-full w-full items-end p-5">
+                  <div className="flex w-full items-center justify-between text-[10px] uppercase tracking-[0.3em] text-white/90">
+                    <span>SPU · ICT</span>
+                    <span>EST. 2027</span>
+                  </div>
+                </div>
+              }
+            />
           </div>
         </div>
       </div>
