@@ -1,5 +1,6 @@
 import { Globe, Heart, MessageCircle, User } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { NumberTicker } from '@/components/ui/number-ticker';
 
 const About = () => {
   const languages = ['English', 'Sesotho', 'Xhosa'];
@@ -112,19 +113,27 @@ const About = () => {
         {/* Stats Section */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
           <div className="text-center">
-            <div className="text-3xl font-bold text-primary mb-2">4+</div>
+            <div className="text-3xl font-bold text-primary mb-2 flex items-center justify-center">
+              <NumberTicker value={4} />+
+            </div>
             <div className="text-sm text-muted-foreground">Programming Languages</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold text-primary mb-2">10+</div>
+            <div className="text-3xl font-bold text-primary mb-2 flex items-center justify-center">
+              <NumberTicker value={10} />+
+            </div>
             <div className="text-sm text-muted-foreground">Projects Completed</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold text-primary mb-2">3+</div>
+            <div className="text-3xl font-bold text-primary mb-2 flex items-center justify-center">
+              <NumberTicker value={3} />+
+            </div>
             <div className="text-sm text-muted-foreground">Years of Study</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold text-primary mb-2">5+</div>
+            <div className="text-3xl font-bold text-primary mb-2 flex items-center justify-center">
+              <NumberTicker value={5} />+
+            </div>
             <div className="text-sm text-muted-foreground">Certifications</div>
           </div>
         </div>
