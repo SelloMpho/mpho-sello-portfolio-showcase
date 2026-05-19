@@ -95,9 +95,8 @@ const Projects = () => {
           {projects.map((project, index) => {
             const IconComponent = project.icon;
             return (
-              <Backlight key={project.id} className="rounded-2xl h-full">
-                <TweetCard className="h-full">
-                  <Card
+              <TweetCard key={project.id} className="h-full">
+                <Card
                     className="project-card cursor-pointer group h-full border-0 bg-transparent shadow-none rounded-2xl"
                     onClick={() => setSelectedProject(project)}
                     style={{ animationDelay: `${index * 0.1}s` }}
@@ -166,8 +165,7 @@ const Projects = () => {
                       </div>
                     </CardContent>
                   </Card>
-                </TweetCard>
-              </Backlight>
+              </TweetCard>
             );
           })}
         </div>
