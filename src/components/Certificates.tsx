@@ -1,5 +1,4 @@
 import { FaExternalLinkAlt, FaFilePdf } from 'react-icons/fa';
-import { Backlight } from '@/components/ui/backlight';
 import { TweetCard } from '@/components/ui/tweet-card';
 
 const Certificates = () => {
@@ -28,8 +27,7 @@ const Certificates = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {certificates.map((cert) => (
-            <Backlight key={cert.name} className="rounded-2xl">
-              <TweetCard className="group h-full">
+            <TweetCard key={cert.name} className="group h-full">
                 <a
                   href={cert.pdf}
                   target="_blank"
@@ -63,7 +61,6 @@ const Certificates = () => {
                   </div>
                 </a>
               </TweetCard>
-            </Backlight>
           ))}
         </div>
 
