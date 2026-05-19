@@ -80,19 +80,8 @@ const ScrollAnimations = () => {
       stagger('#about .space-y-6 > *', { x: 60, y: 0 });
       stagger('#about .mt-16 > div', { y: 40, stagger: 0.1 });
 
-      // Projects — staggered cards + pinned heading
-      stagger('#projects .grid > *');
-      const projectsSection = document.querySelector('#projects');
-      const projectsHeading = projectsSection?.querySelector('.text-center');
-      if (projectsSection && projectsHeading) {
-        ScrollTrigger.create({
-          trigger: projectsSection,
-          start: 'top top+=80',
-          end: 'bottom bottom',
-          pin: projectsHeading as HTMLElement,
-          pinSpacing: false,
-        });
-      }
+      // Projects — keep cards reliably visible; avoid pinning this section.
+      gsap.set('#projects .grid > *', { opacity: 1, y: 0, clearProps: 'visibility' });
 
       // Certificates — staggered reveal
       stagger('#certificates .grid > a', { y: 60, scale: 0.95, stagger: 0.08 });
