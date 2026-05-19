@@ -102,7 +102,7 @@ export default {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'marquee': 'marquee 25s linear infinite',
-				'backlight-pulse': 'backlight-pulse 6s ease-in-out infinite'
+				'backlight-pulse': 'backlight-pulse 14s ease-in-out infinite'
 			}
 		}
 	},
