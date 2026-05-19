@@ -37,7 +37,7 @@ export const Backlight = React.forwardRef<HTMLDivElement, BacklightProps>(
       >
         <div
           aria-hidden
-          className="pointer-events-none absolute -inset-1 -z-10 rounded-[inherit] opacity-0 transition-opacity duration-500 group-hover:opacity-100 animate-backlight-pulse"
+          className="pointer-events-none absolute -inset-1 -z-10 rounded-[inherit] opacity-0 transition-opacity duration-1000 ease-out group-hover:opacity-100 animate-backlight-pulse"
           style={{
             background: `conic-gradient(from 0deg, ${colorFrom}, ${colorTo}, ${colorFrom})`,
             filter: `blur(${blur}px)`,
