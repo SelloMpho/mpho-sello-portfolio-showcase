@@ -1,5 +1,4 @@
 import { FaExternalLinkAlt, FaFilePdf } from 'react-icons/fa';
-import { Backlight } from '@/components/ui/backlight';
 import { TweetCard } from '@/components/ui/tweet-card';
 
 const Certificates = () => {
