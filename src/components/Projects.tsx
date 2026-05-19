@@ -96,76 +96,79 @@ const Projects = () => {
           {projects.map((project, index) => {
             const IconComponent = project.icon;
             return (
-              <Card 
-                key={project.id} 
-                className="project-card cursor-pointer group h-full"
-                onClick={() => setSelectedProject(project)}
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <CardHeader>
-                  <div className="flex items-center space-x-3 mb-4">
-                    <div className="p-2 rounded-lg bg-skill-bg">
-                      <IconComponent className="h-6 w-6 text-primary" />
-                    </div>
-                    <span className="text-sm text-muted-foreground font-medium">
-                      {project.category}
-                    </span>
-                  </div>
-                  <CardTitle className="group-hover:text-primary transition-colors duration-200">
-                    {project.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-muted-foreground">
-                    {project.description}
-                  </p>
-                  
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.slice(0, 3).map((tech) => (
-                      <span 
-                        key={tech}
-                        className="px-2 py-1 bg-secondary text-secondary-foreground rounded text-xs font-medium"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                    {project.technologies.length > 3 && (
-                      <span className="px-2 py-1 bg-secondary text-secondary-foreground rounded text-xs font-medium">
-                        +{project.technologies.length - 3} more
-                      </span>
-                    )}
-                  </div>
+              <Backlight key={project.id} className="rounded-2xl h-full">
+                <TweetCard className="h-full">
+                  <Card
+                    className="project-card cursor-pointer group h-full border-0 bg-transparent shadow-none rounded-2xl"
+                    onClick={() => setSelectedProject(project)}
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <CardHeader>
+                      <div className="flex items-center space-x-3 mb-4">
+                        <div className="p-2 rounded-lg bg-skill-bg">
+                          <IconComponent className="h-6 w-6 text-primary" />
+                        </div>
+                        <span className="text-sm text-muted-foreground font-medium">
+                          {project.category}
+                        </span>
+                      </div>
+                      <CardTitle className="group-hover:text-primary transition-colors duration-200">
+                        {project.title}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <p className="text-muted-foreground">
+                        {project.description}
+                      </p>
 
-                  <div className="flex space-x-3 pt-4">
-                    {project.github && (
-                      <Button 
-                        variant="outline" 
-                        size="sm"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          window.open(project.github, '_blank');
-                        }}
-                      >
-                        <Github className="h-4 w-4 mr-2" />
-                        Code
-                      </Button>
-                    )}
-                    {project.demo && (
-                      <Button 
-                        variant="outline" 
-                        size="sm"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          window.open(project.demo, '_blank');
-                        }}
-                      >
-                        <ExternalLink className="h-4 w-4 mr-2" />
-                        Demo
-                      </Button>
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
+                      <div className="flex flex-wrap gap-2">
+                        {project.technologies.slice(0, 3).map((tech) => (
+                          <span
+                            key={tech}
+                            className="px-2 py-1 bg-secondary text-secondary-foreground rounded text-xs font-medium"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                        {project.technologies.length > 3 && (
+                          <span className="px-2 py-1 bg-secondary text-secondary-foreground rounded text-xs font-medium">
+                            +{project.technologies.length - 3} more
+                          </span>
+                        )}
+                      </div>
+
+                      <div className="flex space-x-3 pt-4">
+                        {project.github && (
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              window.open(project.github, '_blank');
+                            }}
+                          >
+                            <Github className="h-4 w-4 mr-2" />
+                            Code
+                          </Button>
+                        )}
+                        {project.demo && (
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              window.open(project.demo, '_blank');
+                            }}
+                          >
+                            <ExternalLink className="h-4 w-4 mr-2" />
+                            Demo
+                          </Button>
+                        )}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </TweetCard>
+              </Backlight>
             );
           })}
         </div>
