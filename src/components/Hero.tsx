@@ -5,10 +5,9 @@ import heroImage from '@/assets/portfolio-hero.jpg';
 import TiltedCard from '@/components/TiltedCard';
 
 const ROLES = [
-  'Full Stack Developer',
   'Data Analyst',
-  'UI/UX Enthusiast',
-  'Future ERP Specialist',
+  'PowerBI Developer',
+  'Bussiness Intelligence Analyst',
 ];
 
 const Hero = () => {
