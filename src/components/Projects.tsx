@@ -3,7 +3,6 @@ import { ExternalLink, Github, Book, Scale, Heart, X } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { Backlight } from '@/components/ui/backlight';
 import { TweetCard } from '@/components/ui/tweet-card';
 
 interface Project {
