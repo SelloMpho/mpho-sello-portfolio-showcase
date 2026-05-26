@@ -56,8 +56,16 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-32 section-bg">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="relative py-32 section-bg overflow-hidden">
+      <div
+        data-watermark
+        aria-hidden
+        className="pointer-events-none absolute top-10 left-0 right-0 text-[20vw] font-bold text-foreground/[0.025] leading-none tracking-tighter whitespace-nowrap select-none"
+        style={{ fontFamily: '"Space Grotesk", sans-serif' }}
+      >
+        SAY · HELLO
+      </div>
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-display text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 text-gradient-animated">
             Get In Touch

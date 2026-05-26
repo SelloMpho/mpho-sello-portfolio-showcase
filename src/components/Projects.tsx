@@ -80,8 +80,16 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-32 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="relative py-32 bg-background overflow-hidden">
+      <div
+        data-watermark
+        aria-hidden
+        className="pointer-events-none absolute top-20 left-0 right-0 text-[18vw] font-bold text-foreground/[0.03] leading-none tracking-tighter whitespace-nowrap select-none"
+        style={{ fontFamily: '"Space Grotesk", sans-serif' }}
+      >
+        WORK · 2024
+      </div>
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-display text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 text-gradient-animated">
             Featured Projects
