@@ -1,6 +1,7 @@
 import { Globe, Heart, MessageCircle, User } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { NumberTicker } from '@/components/ui/number-ticker';
+import aboutPortrait from '@/assets/about-portrait.png';
 
 const About = () => {
   const languages = ['English', 'Sesotho', 'Xhosa'];
