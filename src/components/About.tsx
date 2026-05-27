@@ -1,6 +1,7 @@
 import { Globe, Heart, MessageCircle, User } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { NumberTicker } from '@/components/ui/number-ticker';
+import aboutPortrait from '@/assets/about-portrait.png';
 
 const About = () => {
   const languages = ['English', 'Sesotho', 'Xhosa'];
@@ -34,9 +35,29 @@ const About = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Profile Section */}
-          <div className="space-y-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+          {/* Portrait — mirrors hero image treatment */}
+          <div className="relative animate-slide-in-left order-1">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <div
+                className="relative aspect-[4/5] w-full"
+                style={{
+                  backgroundImage: `url(${aboutPortrait})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                }}
+              >
+                <div className="absolute inset-0 bg-background/20"></div>
+              </div>
+            </div>
+            {/* Floating accents like Hero */}
+            <div className="absolute -top-6 -left-6 w-20 h-20 bg-primary/10 rounded-full animate-float hidden lg:block"></div>
+            <div className="absolute -bottom-6 -right-6 w-16 h-16 bg-accent/10 rounded-full animate-float hidden lg:block" style={{ animationDelay: '1s' }}></div>
+            <div className="absolute top-1/2 -right-4 w-12 h-12 bg-primary/5 rounded-full animate-float hidden lg:block" style={{ animationDelay: '2s' }}></div>
+          </div>
+
+          {/* Profile Section — right */}
+          <div className="space-y-8 order-2">
             <div className="animate-slide-up">
               <h3 className="text-2xl font-bold mb-6 flex items-center">
                 <User className="mr-3 h-6 w-6 text-primary" />
@@ -75,9 +96,11 @@ const About = () => {
               </div>
             </div>
           </div>
+        </div>
 
-          {/* Skills Cards */}
-          <div className="space-y-6">
+        {/* Skills Cards */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
             <Card className="project-card">
               <CardHeader>
                 <CardTitle className="flex items-center">
@@ -116,8 +139,8 @@ const About = () => {
                 </div>
               </CardContent>
             </Card>
-          </div>
         </div>
+
 
         {/* Stats Section */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
