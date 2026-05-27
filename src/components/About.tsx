@@ -139,8 +139,8 @@ const About = () => {
                 </div>
               </CardContent>
             </Card>
-          </div>
         </div>
+
 
         {/* Stats Section */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
