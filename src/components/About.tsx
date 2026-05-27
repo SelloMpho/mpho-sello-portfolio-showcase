@@ -1,9 +1,49 @@
+import { useEffect, useRef } from 'react';
 import { Globe, Heart, MessageCircle, User } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { NumberTicker } from '@/components/ui/number-ticker';
 import aboutPortrait from '@/assets/about-portrait.png';
 
 const About = () => {
+  const portraitRef = useRef<HTMLDivElement>(null);
+  const portraitImageRef = useRef<HTMLDivElement>(null);
+  const portraitGlowRef = useRef<HTMLDivElement>(null);
+
+  // Mouse-reactive micro-parallax (mirrors Hero portrait behavior)
+  useEffect(() => {
+    const container = portraitRef.current;
+    if (!container) return;
+    let raf = 0;
+    let tx = 0, ty = 0, gx = 0, gy = 0;
+    const handle = (e: MouseEvent) => {
+      const rect = container.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const dx = (e.clientX - cx) / rect.width;
+      const dy = (e.clientY - cy) / rect.height;
+      tx = dx * 14;
+      ty = dy * 14;
+      gx = dx * 28;
+      gy = dy * 28;
+      if (!raf) {
+        raf = requestAnimationFrame(() => {
+          if (portraitImageRef.current) {
+            portraitImageRef.current.style.transform = `translate3d(${tx}px, ${ty}px, 0) scale(1.05)`;
+          }
+          if (portraitGlowRef.current) {
+            portraitGlowRef.current.style.transform = `translate3d(${gx}px, ${gy}px, 0)`;
+          }
+          raf = 0;
+        });
+      }
+    };
+    window.addEventListener('mousemove', handle);
+    return () => {
+      window.removeEventListener('mousemove', handle);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
+
   const languages = ['English', 'Sesotho', 'Xhosa'];
   const softSkills = [
     'Problem Solving',
@@ -13,6 +53,7 @@ const About = () => {
     'Adaptability',
     'Time Management'
   ];
+
 
   return (
     <section id="about" className="relative py-32 section-bg overflow-hidden">
