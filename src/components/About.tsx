@@ -77,25 +77,38 @@ const About = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-          {/* Portrait — mirrors hero image treatment */}
-          <div className="relative animate-slide-in-left order-1">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+          {/* Portrait — mirrors hero image treatment + parallax */}
+          <div
+            ref={portraitRef}
+            data-parallax="-0.15"
+            className="relative animate-slide-in-left order-1 [perspective:1200px]"
+          >
+            {/* Ambient glow that follows the cursor */}
+            <div
+              ref={portraitGlowRef}
+              aria-hidden
+              className="pointer-events-none absolute -inset-10 -z-10 rounded-[2rem] bg-[radial-gradient(circle_at_center,hsl(var(--primary)/0.35),transparent_60%)] blur-3xl transition-transform duration-500 ease-out will-change-transform"
+            />
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl ring-1 ring-border/40">
               <div
-                className="relative aspect-[4/5] w-full"
+                ref={portraitImageRef}
+                className="relative aspect-[4/5] w-full transition-transform duration-500 ease-out will-change-transform"
                 style={{
                   backgroundImage: `url(${aboutPortrait})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
+                  transform: 'scale(1.05)',
                 }}
               >
                 <div className="absolute inset-0 bg-background/20"></div>
               </div>
             </div>
-            {/* Floating accents like Hero */}
-            <div className="absolute -top-6 -left-6 w-20 h-20 bg-primary/10 rounded-full animate-float hidden lg:block"></div>
-            <div className="absolute -bottom-6 -right-6 w-16 h-16 bg-accent/10 rounded-full animate-float hidden lg:block" style={{ animationDelay: '1s' }}></div>
-            <div className="absolute top-1/2 -right-4 w-12 h-12 bg-primary/5 rounded-full animate-float hidden lg:block" style={{ animationDelay: '2s' }}></div>
+            {/* Floating accents like Hero — layered parallax depths */}
+            <div data-parallax="0.35" className="absolute -top-6 -left-6 w-20 h-20 bg-primary/10 rounded-full animate-float hidden lg:block"></div>
+            <div data-parallax="0.5" className="absolute -bottom-6 -right-6 w-16 h-16 bg-accent/10 rounded-full animate-float hidden lg:block" style={{ animationDelay: '1s' }}></div>
+            <div data-parallax="0.2" className="absolute top-1/2 -right-4 w-12 h-12 bg-primary/5 rounded-full animate-float hidden lg:block" style={{ animationDelay: '2s' }}></div>
           </div>
+
 
           {/* Profile Section — right */}
           <div className="space-y-8 order-2">
