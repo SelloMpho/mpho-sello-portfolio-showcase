@@ -2,13 +2,74 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Ultra-modern cinematic dark portfolio design system.
+/* Dual-theme system:
+   - :root / .light  -> Luxury editorial light (marble, champagne, ivory)
+   - .dark           -> Cinematic monochrome dark
    All colors MUST be HSL. */
 
 @layer base {
   :root {
-    /* Cinematic dark palette — near-black with high contrast whites */
-    --background: 0 0% 2%;          /* #050505 */
+    /* ===== LUXURY LIGHT THEME (default tokens) ===== */
+    /* Warm ivory / soft pearl backgrounds, espresso text, champagne gold accent */
+    --background: 36 40% 94%;          /* #F5EFE6 warm ivory */
+    --foreground: 28 35% 12%;          /* #2A2118 deep espresso */
+
+    --card: 36 45% 97%;                /* #F8F3EC soft pearl */
+    --card-foreground: 28 35% 12%;
+
+    --popover: 36 45% 97%;
+    --popover-foreground: 28 35% 12%;
+
+    /* Primary = muted bronze for buttons/links */
+    --primary: 28 28% 38%;             /* #A88B6A muted bronze */
+    --primary-foreground: 36 45% 97%;
+    --primary-dark: 28 30% 28%;
+
+    --secondary: 34 35% 86%;           /* #E8DCCB champagne beige */
+    --secondary-foreground: 28 35% 12%;
+
+    --muted: 34 30% 90%;
+    --muted-foreground: 28 18% 35%;
+
+    /* Accent = metallic champagne gold */
+    --accent: 36 38% 62%;              /* #BFA27A metallic gold */
+    --accent-foreground: 28 35% 12%;
+
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 36 45% 97%;
+
+    --border: 34 28% 78%;
+    --input: 34 28% 82%;
+    --ring: 36 38% 55%;
+
+    --radius: 0.25rem;
+
+    --portfolio-gradient: linear-gradient(135deg, hsl(28 35% 18%), hsl(36 38% 45%));
+    --portfolio-gradient-subtle: linear-gradient(135deg, hsl(36 50% 90% / 0.6), hsl(34 35% 80% / 0.3));
+    --section-bg: 36 40% 92%;
+    --skill-bg: 34 35% 86% / 0.6;
+    --project-shadow: 28 35% 12% / 0.12;
+
+    --transition-smooth: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    --shadow-elegant: 0 30px 80px -20px hsl(28 35% 12% / 0.25);
+    --shadow-card: 0 1px 0 hsl(36 45% 100% / 0.6) inset, 0 20px 50px -20px hsl(28 35% 12% / 0.18);
+    --shadow-glow: 0 0 60px hsl(36 38% 62% / 0.35);
+
+    --sidebar-background: 36 45% 95%;
+    --sidebar-foreground: 28 35% 12%;
+    --sidebar-primary: 28 28% 38%;
+    --sidebar-primary-foreground: 36 45% 97%;
+    --sidebar-accent: 34 35% 88%;
+    --sidebar-accent-foreground: 28 35% 12%;
+    --sidebar-border: 34 28% 78%;
+    --sidebar-ring: 36 38% 55%;
+  }
+
+  /* ===== CINEMATIC DARK THEME ===== */
+  .dark {
+    --background: 0 0% 2%;
     --foreground: 0 0% 98%;
 
     --card: 0 0% 4%;
@@ -17,7 +78,6 @@
     --popover: 0 0% 4%;
     --popover-foreground: 0 0% 98%;
 
-    /* Primary = pure white (monochrome accent) */
     --primary: 0 0% 98%;
     --primary-foreground: 0 0% 4%;
     --primary-dark: 0 0% 80%;
@@ -28,7 +88,6 @@
     --muted: 0 0% 8%;
     --muted-foreground: 0 0% 60%;
 
-    /* Subtle warm accent for highlights */
     --accent: 35 95% 65%;
     --accent-foreground: 0 0% 4%;
 
@@ -39,16 +98,11 @@
     --input: 0 0% 12%;
     --ring: 0 0% 60%;
 
-    --radius: 0.25rem;
-
     --portfolio-gradient: linear-gradient(135deg, hsl(0 0% 98%), hsl(0 0% 70%));
     --portfolio-gradient-subtle: linear-gradient(135deg, hsl(0 0% 100% / 0.06), hsl(0 0% 100% / 0.02));
     --section-bg: 0 0% 3%;
     --skill-bg: 0 0% 100% / 0.06;
     --project-shadow: 0 0% 0% / 0.5;
-
-    --transition-smooth: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-    --transition-bounce: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 
     --shadow-elegant: 0 30px 80px -20px hsl(0 0% 0% / 0.7);
     --shadow-card: 0 1px 0 hsl(0 0% 100% / 0.04) inset, 0 20px 60px -20px hsl(0 0% 0% / 0.6);
@@ -63,9 +117,6 @@
     --sidebar-border: 0 0% 12%;
     --sidebar-ring: 0 0% 60%;
   }
-
-  /* Force dark always — design is cinematic monochrome */
-  .dark { /* same tokens as :root */ }
 
   * {
     @apply border-border;
@@ -82,6 +133,20 @@
     font-feature-settings: 'ss01', 'cv11';
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    transition: background-color 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                color 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* Smooth liquid theme morph across themed surfaces */
+  body, body * {
+    transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+    transition-duration: 0.6s;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  /* Keep transform/opacity animations snappy (don't slow them) */
+  body *[class*="animate-"],
+  body *[style*="transform"] {
+    transition-property: background-color, border-color, color, box-shadow;
   }
 
   h1, h2, h3, h4 {
@@ -90,11 +155,11 @@
   }
 
   ::selection {
-    background: hsl(0 0% 98%);
-    color: hsl(0 0% 4%);
+    background: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
   }
 
-  /* Subtle film-grain noise overlay */
+  /* Subtle film-grain noise overlay (both themes) */
   body::before {
     content: '';
     position: fixed;
@@ -105,23 +170,35 @@
     mix-blend-mode: overlay;
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.9'/></svg>");
   }
+
+  /* Marble texture overlay — only visible in light luxury theme */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 1s ease;
+    background:
+      radial-gradient(ellipse at 20% 10%, hsl(36 50% 92% / 0.9), transparent 55%),
+      radial-gradient(ellipse at 85% 80%, hsl(34 45% 84% / 0.7), transparent 60%),
+      radial-gradient(ellipse at 50% 50%, hsl(36 38% 62% / 0.08), transparent 70%);
+    mix-blend-mode: soft-light;
+  }
+  :root:not(.dark) body::after,
+  html.light body::after {
+    opacity: 1;
+  }
 }
 
 @layer components {
-  .portfolio-gradient {
-    background: var(--portfolio-gradient);
-  }
-
-  .portfolio-gradient-subtle {
-    background: var(--portfolio-gradient-subtle);
-  }
-
-  .section-bg {
-    background-color: hsl(var(--section-bg));
-  }
+  .portfolio-gradient { background: var(--portfolio-gradient); }
+  .portfolio-gradient-subtle { background: var(--portfolio-gradient-subtle); }
+  .section-bg { background-color: hsl(var(--section-bg)); }
 
   .skill-progress {
-    background: linear-gradient(90deg, hsl(0 0% 98%), hsl(0 0% 60%));
+    background: linear-gradient(90deg, hsl(var(--accent)), hsl(var(--primary)));
   }
 
   .project-card {
@@ -133,24 +210,24 @@
 
   .project-card:hover {
     box-shadow: var(--shadow-elegant);
-    border-color: hsl(0 0% 25%);
+    border-color: hsl(var(--accent));
   }
 
   .nav-blur {
     backdrop-filter: blur(20px) saturate(160%);
-    background: hsl(0 0% 2% / 0.65);
+    background: hsl(var(--background) / 0.7);
     border-bottom: 1px solid hsl(var(--border));
   }
 
   .glass {
-    background: linear-gradient(135deg, hsl(0 0% 100% / 0.04), hsl(0 0% 100% / 0.01));
-    border: 1px solid hsl(0 0% 100% / 0.08);
+    background: linear-gradient(135deg, hsl(var(--card) / 0.5), hsl(var(--card) / 0.2));
+    border: 1px solid hsl(var(--border) / 0.6);
     backdrop-filter: blur(20px);
   }
 
   .hairline {
     height: 1px;
-    background: linear-gradient(90deg, transparent, hsl(0 0% 100% / 0.25), transparent);
+    background: linear-gradient(90deg, transparent, hsl(var(--accent) / 0.5), transparent);
   }
 
   .text-display {
@@ -168,7 +245,7 @@
   .animate-scale-in { animation: scaleIn 1s cubic-bezier(0.22,1,0.36,1) 0.9s forwards; opacity: 0; }
 
   .text-gradient-animated {
-    background: linear-gradient(120deg, hsl(0 0% 100%) 0%, hsl(0 0% 55%) 45%, hsl(0 0% 100%) 100%);
+    background: linear-gradient(120deg, hsl(var(--foreground)) 0%, hsl(var(--accent)) 45%, hsl(var(--foreground)) 100%);
     background-size: 200% 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -182,12 +259,61 @@
   .magnetic-btn::after {
     content: '';
     position: absolute; inset: 0;
-    background: hsl(0 0% 100%);
+    background: hsl(var(--accent));
     transform: translateY(100%);
     transition: transform 0.5s cubic-bezier(0.22,1,0.36,1);
     z-index: -1;
   }
   .magnetic-btn:hover::after { transform: translateY(0); }
+
+  /* Luxury theme toggle */
+  .luxury-toggle {
+    position: relative;
+    width: 64px;
+    height: 32px;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, hsl(var(--card) / 0.7), hsl(var(--muted) / 0.5));
+    border: 1px solid hsl(var(--border));
+    backdrop-filter: blur(14px) saturate(160%);
+    box-shadow:
+      inset 0 1px 0 hsl(var(--foreground) / 0.08),
+      0 4px 20px -4px hsl(var(--accent) / 0.25);
+    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    overflow: hidden;
+  }
+  .luxury-toggle:hover {
+    box-shadow:
+      inset 0 1px 0 hsl(var(--foreground) / 0.12),
+      0 8px 30px -4px hsl(var(--accent) / 0.45);
+  }
+  .luxury-toggle::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 30% 50%, hsl(36 60% 70% / 0.4), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+  .luxury-toggle:hover::before { opacity: 1; }
+
+  .luxury-toggle-thumb {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 24px;
+    height: 24px;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, hsl(36 50% 92%), hsl(36 38% 62%));
+    box-shadow:
+      0 2px 8px hsl(0 0% 0% / 0.35),
+      inset 0 1px 0 hsl(0 0% 100% / 0.5);
+    transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1.4),
+                background 0.6s ease;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .dark .luxury-toggle-thumb {
+    transform: translateX(32px);
+    background: linear-gradient(135deg, hsl(0 0% 18%), hsl(0 0% 4%));
+  }
 }
 
 @layer utilities {
