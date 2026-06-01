@@ -67,7 +67,7 @@ const Contact = () => {
       </div>
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-display text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 text-gradient-animated">
+          <h2 className="text-display text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 text-gradient">
             Get In Touch
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">

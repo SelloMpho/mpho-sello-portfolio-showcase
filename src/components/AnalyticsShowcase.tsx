@@ -59,11 +59,11 @@ const AnalyticsShowcase = () => {
     if (!el) return;
     const ctx = gsap.context(() => {
       gsap.from('.kpi-card', {
-        y: 60, opacity: 0, duration: 0.9, ease: 'power3.out', stagger: 0.1,
+        y: 18, opacity: 0, duration: 0.6, ease: 'power2.out', stagger: 0.06,
         scrollTrigger: { trigger: '.kpi-row', start: 'top 80%' },
       });
       gsap.from('.viz-panel', {
-        y: 80, opacity: 0, scale: 0.97, duration: 1, ease: 'power3.out', stagger: 0.12,
+        y: 24, opacity: 0, scale: 0.99, duration: 0.7, ease: 'power2.out', stagger: 0.08,
         scrollTrigger: { trigger: '.viz-grid', start: 'top 80%' },
       });
     }, el);
@@ -91,7 +91,7 @@ const AnalyticsShowcase = () => {
             <div className="mb-4 flex items-center gap-3 text-[10px] uppercase tracking-[0.4em] text-accent">
               <span className="h-px w-10 bg-accent" /> Live Systems
             </div>
-            <h2 className="text-display text-5xl sm:text-6xl lg:text-7xl font-bold text-gradient-animated">
+            <h2 className="text-display text-4xl sm:text-5xl lg:text-6xl font-bold text-gradient">
               Analytics, intelligence,<br /> and enterprise operations.
             </h2>
           </div>

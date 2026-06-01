@@ -3,564 +3,249 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mpho Sello — CV</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <title>Mpho Sello CV</title>
   <style>
-    :root {
-      --ink:       #0f1117;
-      --muted:     #4a4f5e;
-      --faint:     #8b90a0;
-      --accent:    #1a4ed8;
-      --accent2:   #0e9e72;
-      --rule:      #e2e5ec;
-      --bg:        #faf9f7;
-      --card:      #f3f4f8;
-      --serif:     'DM Serif Display', Georgia, serif;
-      --sans:      'DM Sans', system-ui, sans-serif;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: var(--sans);
-      background: var(--bg);
-      color: var(--ink);
-      font-size: 14px;
-      line-height: 1.6;
-      -webkit-print-color-adjust: exact;
-      print-color-adjust: exact;
-    } 
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11pt;
+      color: #000;
+      background: #fff;
+      max-width: 210mm;
+      margin: 0 auto;
+      padding: 18mm 20mm;
+      line-height: 1.5;
+    }
 
-    .page { max-width: 900px; margin: 0 auto; padding: 0; }
-
+    /* ── Header ── */
     .header {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 24px;
-      align-items: end;
-      padding: 52px 56px 36px;
-      border-bottom: 1.5px solid var(--rule);
-      position: relative;
+      text-align: center;
+      margin-bottom: 12px;
     }
 
-    .header::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 6px;
-      height: 100%;
-      background: linear-gradient(180deg, var(--accent) 0%, var(--accent2) 100%);
-    }
-
-    .name-block .eyebrow {
-      font-family: var(--sans);
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 3px;
+    .header h1 {
+      font-size: 20pt;
+      font-weight: bold;
+      letter-spacing: 1px;
       text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 8px;
+      margin-bottom: 4px;
     }
 
-    h1 {
-      font-family: var(--serif);
-      font-size: 52px;
-      font-weight: 400;
-      line-height: 1.05;
-      color: var(--ink);
-      letter-spacing: -0.5px;
+    .header .location {
+      font-size: 10.5pt;
+      margin-bottom: 4px;
     }
 
-    .tagline {
-      margin-top: 10px;
-      font-size: 13.5px;
-      font-weight: 300;
-      color: var(--muted);
-      max-width: 420px;
+    .header .contacts {
+      font-size: 10.5pt;
     }
 
-    .contact-block {
-      display: flex;
-      flex-direction: column;
-      gap: 7px;
-      text-align: right;
-    }
-
-    .contact-block a, .contact-block span {
-      font-size: 12.5px;
-      color: var(--muted);
+    .header .contacts a {
+      color: #000;
       text-decoration: none;
-      display: block;
     }
 
-    .contact-block a:hover { color: var(--accent); }
-
-    .body {
-      display: grid;
-      grid-template-columns: 1fr 270px;
-      gap: 0;
+    .header-rule {
+      border: none;
+      border-top: 1.5px solid #000;
+      margin: 10px 0 14px;
     }
 
-    .main-col {
-      padding: 40px 48px 48px 56px;
-      border-right: 1.5px solid var(--rule);
+    /* ── Section ── */
+    .section {
+      margin-bottom: 14px;
     }
 
-    .side-col { padding: 40px 36px 48px; }
-
-    .section { margin-bottom: 36px; }
-    .section:last-child { margin-bottom: 0; }
-
-    .section-label {
-      font-size: 9.5px;
-      font-weight: 600;
-      letter-spacing: 3px;
+    .section-title {
+      font-size: 11pt;
+      font-weight: bold;
       text-transform: uppercase;
-      color: var(--faint);
-      margin-bottom: 18px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--rule);
+      border-bottom: 1px solid #000;
+      padding-bottom: 2px;
+      margin-bottom: 8px;
+      letter-spacing: 0.3px;
     }
 
-    .summary p {
-      font-size: 13.5px;
-      color: var(--muted);
-      line-height: 1.75;
-      margin-bottom: 10px;
-    }
-    .summary p:last-child { margin-bottom: 0; }
-
-    .project {
-      margin-bottom: 24px;
-      padding-bottom: 24px;
-      border-bottom: 1px dashed var(--rule);
-    }
-    .project:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
-
-    .project-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 6px;
+    /* ── Paragraphs ── */
+    .section p {
+      font-size: 10.5pt;
+      text-align: justify;
+      margin-bottom: 7px;
     }
 
-    .project-title {
-      font-family: var(--serif);
-      font-size: 16px;
-      font-weight: 400;
-      color: var(--ink);
+    .section p:last-child { margin-bottom: 0; }
+
+    /* ── Two-column table for skills & certs ── */
+    .two-col {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10.5pt;
     }
 
-    .project-stack {
-      font-size: 10.5px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      color: var(--accent);
-      background: #eff4ff;
-      padding: 2px 9px;
-      border-radius: 20px;
-      white-space: nowrap;
-      flex-shrink: 0;
+    .two-col td {
+      vertical-align: top;
+      padding: 0;
+      width: 50%;
+      padding-right: 12px;
     }
 
-    .project-desc {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.65;
+    .two-col td:last-child { padding-right: 0; }
+
+    .two-col ul {
+      list-style: disc;
+      margin-left: 16px;
     }
 
-    .project-outcome {
-      margin-top: 6px;
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--accent2);
+    .two-col ul li {
+      margin-bottom: 3px;
     }
 
-    .edu-item {
-      margin-bottom: 20px;
-      padding-bottom: 20px;
-      border-bottom: 1px dashed var(--rule);
+    /* ── Bullet lists ── */
+    .bullet-list {
+      list-style: disc;
+      margin-left: 16px;
+      font-size: 10.5pt;
     }
-    .edu-item:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
 
-    .edu-school { font-weight: 600; font-size: 13px; color: var(--ink); margin-bottom: 2px; }
-    .edu-degree { font-size: 12.5px; color: var(--muted); margin-bottom: 3px; }
-    .edu-period { font-size: 11px; color: var(--faint); font-style: italic; }
-
-    .skill-group { margin-bottom: 16px; }
-    .skill-group:last-child { margin-bottom: 0; }
-
-    .skill-cat {
-      font-size: 10.5px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--accent);
+    .bullet-list li {
       margin-bottom: 5px;
     }
 
-    .skill-pills { display: flex; flex-wrap: wrap; gap: 5px; }
-
-    .pill {
-      font-size: 11.5px;
-      background: var(--card);
-      color: var(--muted);
-      padding: 3px 9px;
-      border-radius: 4px;
-      border: 1px solid var(--rule);
-    }
-
-    .pill.learning {
-      background: #fff8ed;
-      border-color: #fcd34d;
-      color: #92650a;
-    }
-
-    .pill.strong {
-      background: #eff4ff;
-      border-color: #bfcfff;
-      color: var(--accent);
-      font-weight: 500;
-    }
-
-    .cert-item {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      margin-bottom: 12px;
-      font-size: 12.5px;
-      color: var(--muted);
-    }
-    .cert-item:last-child { margin-bottom: 0; }
-
-    .cert-dot {
-      width: 6px;
-      height: 6px;
-      background: var(--accent2);
-      border-radius: 50%;
-      flex-shrink: 0;
-      margin-top: 6px;
-    }
-
-    .cert-year {
-      font-size: 10.5px;
-      color: var(--faint);
-      margin-top: 2px;
-    }
-
-    .lang-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    /* ── References ── */
+    .ref-block {
       margin-bottom: 8px;
-      font-size: 13px;
+      font-size: 10.5pt;
     }
 
-    .lang-name { color: var(--ink); font-weight: 500; }
-    .lang-level { color: var(--faint); font-size: 12px; }
-
-    .ref-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
+    .ref-block strong {
+      display: block;
+      margin-bottom: 1px;
     }
 
-    .ref-card {
-      background: var(--card);
-      border-radius: 8px;
-      padding: 16px;
-      border-left: 3px solid var(--accent2);
-    }
-
-    .ref-name { font-weight: 600; font-size: 13.5px; margin-bottom: 2px; }
-    .ref-role { font-size: 12px; color: var(--muted); font-style: italic; margin-bottom: 8px; }
-    .ref-contact { font-size: 11.5px; color: var(--muted); line-height: 1.7; }
-
-    .interest-pills { display: flex; flex-wrap: wrap; gap: 6px; }
-
-    .interest-pill {
-      font-size: 11.5px;
-      background: #f0faf6;
-      color: var(--accent2);
-      border: 1px solid #a7f3d0;
-      padding: 4px 10px;
-      border-radius: 20px;
-      font-weight: 500;
-    }
+    .ref-block a { color: #000; text-decoration: none; }
 
     @media print {
-      body { background: white; }
-      .page { max-width: 100%; }
-      .header { padding: 30px 40px 24px; }
-      .main-col { padding: 28px 36px 36px 40px; }
-      .side-col { padding: 28px 28px 36px; }
+      body { padding: 14mm 16mm; }
+      .section { break-inside: avoid; }
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <header class="header">
-      <div class="name-block">
-        <div class="eyebrow">Data &amp; Business Analyst · Developer · ICT Graduate</div>
-        <h1>Mpho<br/>Sello</h1>
-        <p class="tagline">Final-year ICT student specialising in data &amp; business analysis — proficient in SQL, Python, Power BI, and Oracle Analytics Cloud.</p>
-      </div>
-      <div class="contact-block">
-        <span>📍 Bloemfontein, Free State, South Africa</span>
-        <span>📱 067 668 7955</span>
-        <a href="mailto:sellompho1601@gmail.com">sellompho1601@gmail.com</a>
-        <a href="mailto:202324276@spu.ac.za">202324276@spu.ac.za</a>
-        <a href="https://linkedin.com/in/mpho-sello-692193241" target="_blank">linkedin.com/in/mpho-sello-692193241</a>
-      </div>
-    </header>
 
-    <div class="body">
-      <div class="main-col">
-
-        <div class="section summary">
-          <div class="section-label">Profile Summary</div>
-          <p>Final-year Diploma in ICT student with a focused interest in data analysis, business intelligence, and application development. Certified across multiple IBM SkillsBuild and Oracle platforms, with practical experience in Python, SQL, Oracle Analytics Cloud, and Power BI — skills I am actively applying to real-world projects and coursework.</p>
-          <p>I am passionate about turning data into actionable business insights and have developed a strong foundation in data pipelines, cloud databases, and visualisation tools. I am a recognised participant in the FNB App of the Year Awards Academy (2026), demonstrating my ability to build solutions that address real business and social challenges. My analytical mindset, attention to detail, and commitment to continuous learning make me well-suited to a data or business analyst role.</p>
-        </div>
-
-        <div class="section">
-          <div class="section-label">Projects</div>
-
-          <div class="project">
-            <div class="project-header">
-              <div class="project-title">Tutorial Booking System</div>
-              <span class="project-stack">Django · SQLite · HTML/CSS</span>
-            </div>
-            <p class="project-desc">A full-stack web application allowing students to browse available tutors, book sessions, and track upcoming appointments. Implemented user authentication, session management, and an admin dashboard for managing tutor availability.</p>
-            <p class="project-outcome">→ Designed and developed end-to-end as part of coursework; built for real use within the university's tutoring programme.</p>
-          </div>
-
-          <div class="project">
-            <div class="project-header">
-              <div class="project-title">Legal Assistance Booking App</div>
-              <span class="project-stack">Django · Python · JavaScript</span>
-            </div>
-            <p class="project-desc">A service platform where clients can browse legal professionals, book consultations, and manage their appointment history. Features include role-based access for clients and lawyers, booking confirmation logic, and a clean service-listing interface.</p>
-            <p class="project-outcome">→ Focused on applying MVC architecture and user-centred design principles in a real-world service context.</p>
-          </div>
-
-          <div class="project">
-            <div class="project-header">
-              <div class="project-title">Sanitary Services Donation Platform</div>
-              <span class="project-stack">HTML · CSS · Python</span>
-            </div>
-            <p class="project-desc">A civic-tech platform bridging the gap between underprivileged schools and donors. Schools can submit sanitary pad donation requests, while NGOs, individuals, and companies can register, browse requests, and fulfil donations — creating a transparent, trackable giving ecosystem.</p>
-            <p class="project-outcome">→ Developed with a social-impact focus; demonstrates ability to identify real community needs and translate them into software solutions.</p>
-          </div>
-        </div>
-
-        <div class="section">
-          <div class="section-label">References</div>
-          <div class="ref-grid">
-            <div class="ref-card">
-              <div class="ref-name">Miss Oratile Molefe</div>
-              <div class="ref-role">Project Supervisor</div>
-              <div class="ref-contact">
-                omolefe743@gmail.com<br/>
-                072 375 4357
-              </div>
-            </div>
-            <div class="ref-card">
-              <div class="ref-name">Mr Tharollo Motaung</div>
-              <div class="ref-role">University Tutor</div>
-              <div class="ref-contact">
-                solutiont211@gmail.com<br/>
-                071 465 4280
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="side-col">
-
-        <div class="section">
-          <div class="section-label">Education</div>
-          <div class="edu-item">
-            <div class="edu-school">Sol Plaatje University</div>
-            <div class="edu-degree">Diploma in ICT</div>
-            <div class="edu-period">2023 – Present · Kimberley</div>
-          </div>
-          <div class="edu-item">
-            <div class="edu-school">Motheo TVET College</div>
-            <div class="edu-degree">Motor Trade Studies</div>
-            <div class="edu-period">2020 – 2021 · Bloemfontein</div>
-          </div>
-          <div class="edu-item">
-            <div class="edu-school">Bainsvlei Combined School</div>
-            <div class="edu-degree">National Senior Certificate</div>
-            <div class="edu-period">Completed 2019 · Bloemfontein</div>
-          </div>
-        </div>
-
-        <div class="section">
-          <div class="section-label">Skills</div>
-
-          <div class="skill-group">
-            <div class="skill-cat">Languages</div>
-            <div class="skill-pills">
-              <span class="pill strong">Python</span>
-              <span class="pill">Java</span>
-              <span class="pill">JavaScript</span>
-              <span class="pill strong">SQL</span>
-            </div>
-          </div>
-
-          <div class="skill-group">
-            <div class="skill-cat">Web Development</div>
-            <div class="skill-pills">
-              <span class="pill">Django</span>
-              <span class="pill">HTML</span>
-              <span class="pill">CSS</span>
-              <span class="pill learning">React ✦</span>
-            </div>
-          </div>
-
-          <div class="skill-group">
-            <div class="skill-cat">Data &amp; Analytics</div>
-            <div class="skill-pills">
-              <span class="pill strong">SQL</span>
-              <span class="pill">Oracle Analytics</span>
-              <span class="pill">Excel</span>
-              <span class="pill learning">Power BI ✦</span>
-              <span class="pill">Spark</span>
-            </div>
-          </div>
-
-          <div class="skill-group">
-            <div class="skill-cat">Tools &amp; Platforms</div>
-            <div class="skill-pills">
-              <span class="pill">Figma</span>
-              <span class="pill">VS Code</span>
-              <span class="pill">Jupyter</span>
-              <span class="pill">Git</span>
-              <span class="pill">Cloud DB</span>
-            </div>
-          </div>
-
-          <div class="skill-group">
-            <div class="skill-cat">Business Systems</div>
-            <div class="skill-pills">
-              <span class="pill learning">SAP / ERP ✦</span>
-            </div>
-          </div>
-
-          <div class="skill-group">
-            <div class="skill-cat">Soft Skills</div>
-            <div class="skill-pills">
-              <span class="pill">Analytical</span>
-              <span class="pill">Collaborative</span>
-              <span class="pill">Adaptable</span>
-              <span class="pill">Detail-oriented</span>
-            </div>
-          </div>
-
-          <p style="font-size: 10px; color: var(--faint); margin-top: 8px;">✦ Currently learning</p>
-        </div>
-
-        <div class="section">
-          <div class="section-label">Certifications</div>
-
-          <div class="cert-item">
-            <span class="cert-dot"></span>
-            <div>
-              <div>FNB App of the Year Awards — Academy</div>
-              <div class="cert-year">First National Bank · Mar 2026</div>
-            </div>
-          </div>
-
-          <div class="cert-item">
-            <span class="cert-dot"></span>
-            <div>
-              <div>Oracle Analytics Cloud</div>
-              <div class="cert-year">Oracle · Aug 2025</div>
-            </div>
-          </div>
-
-          <div class="cert-item">
-            <span class="cert-dot"></span>
-            <div>
-              <div>Cloud Database Fundamentals</div>
-              <div class="cert-year">IBM / Big Data University · Sep 2025</div>
-            </div>
-          </div>
-
-          <div class="cert-item">
-            <span class="cert-dot"></span>
-            <div>
-              <div>Data Certificate</div>
-              <div class="cert-year">IBM SkillsBuild · Aug 2025</div>
-            </div>
-          </div>
-
-          <div class="cert-item">
-            <span class="cert-dot"></span>
-            <div>
-              <div>e-Certificate (Digital Skills)</div>
-              <div class="cert-year">IBM SkillsBuild · Aug 2025</div>
-            </div>
-          </div>
-
-          <div class="cert-item">
-            <span class="cert-dot"></span>
-            <div>
-              <div>Python 101 for Data Science (PY0101EN)</div>
-              <div class="cert-year">IBM SkillsBuild · Apr 2025</div>
-            </div>
-          </div>
-
-          <div class="cert-item">
-            <span class="cert-dot"></span>
-            <div>
-              <div>IBM First Certificate</div>
-              <div class="cert-year">IBM SkillsBuild · Mar 2025</div>
-            </div>
-          </div>
-
-          <div class="cert-item">
-            <span class="cert-dot"></span>
-            <div>
-              <div>Spark Fundamentals I</div>
-              <div class="cert-year">IBM Big Data University · Mar 2025</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="section">
-          <div class="section-label">Languages</div>
-          <div class="lang-item">
-            <span class="lang-name">English</span>
-            <span class="lang-level">Fluent</span>
-          </div>
-          <div class="lang-item">
-            <span class="lang-name">Sesotho</span>
-            <span class="lang-level">Fluent (Native)</span>
-          </div>
-          <div class="lang-item">
-            <span class="lang-name">Xhosa</span>
-            <span class="lang-level">Conversational</span>
-          </div>
-        </div>
-
-        <div class="section">
-          <div class="section-label">Interests</div>
-          <div class="interest-pills">
-            <span class="interest-pill">Data Analysis</span>
-            <span class="interest-pill">Problem Solving</span>
-            <span class="interest-pill">App Development</span>
-            <span class="interest-pill">Sports</span>
-          </div>
-        </div>
-
-      </div>
+  <!-- HEADER -->
+  <div class="header">
+    <h1>Mpho Sello</h1>
+    <div class="location">Bloemfontein, Free State, South Africa</div>
+    <div class="contacts">
+      067 668 7955 &nbsp;|&nbsp;
+      <a href="mailto:sellompho1601@gmail.com">sellompho1601@gmail.com</a> &nbsp;|&nbsp;
+      <a href="mailto:202324276@spu.ac.za">202324276@spu.ac.za</a> &nbsp;|&nbsp;
+      <a href=" `https://linkedin.com/in/mpho-sello-692193241` ">linkedin.com/in/mpho-sello-692193241</a>
     </div>
   </div>
+
+  <hr class="header-rule" />
+
+  <!-- PROFESSIONAL SUMMARY -->
+  <div class="section">
+    <div class="section-title">Professional Summary</div>
+    <p>
+      Aspiring Junior Data Analyst and final-year Diploma in ICT student specializing in data analysis, business intelligence, and data-driven decision-making. Proficient in Python, SQL, Excel, and Power BI, with hands-on experience in data collection, compilation, manipulation, interpretation, descriptive and exploratory analysis, trend analysis, and dashboard development. Certified across multiple IBM Skills Build and Oracle platforms and a recognized participant in the FNB App of the Year Awards Academy.
+    </p>
+    <p>
+      Demonstrated ability to collate and analyze data using established tools, methods, and formats to generate business insights, support reporting, and contribute to the continuous improvement of data and analytics processes. Experienced in applying forecasting techniques and identifying patterns across datasets to support strategic decision-making. Committed to building capabilities in machine learning, predictive analytics, statistical analysis, and data architecture to grow into a well-rounded data analyst.
+    </p>
+  </div>
+
+  <!-- KEY SKILLS -->
+  <div class="section">
+    <div class="section-title">Key Skills</div>
+    <table class="two-col">
+      <tr>
+        <td>
+          <ul>
+            <li>Data Analysis, Data Collection &amp; Data Compilation — Python, SQL, Excel</li>
+            <li>Data Interpretation, Data Exploration &amp; Exploratory Data Analysis</li>
+            <li>Trend Analysis, Forecasting &amp; Pattern Identification</li>
+            <li>Business Intelligence &amp; Dashboard Development — Oracle Analytics Cloud, Power BI</li>
+            <li>Data Management, Data Controls &amp; Data Cleaning</li>
+            <li>Data Architecture — Cloud Database Design, IBM Cloud, structured data modelling</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Statistical Analysis &amp; Predictive Analytics (foundational — IBM Skills Build, Apache Spark)</li>
+            <li>Business Requirements Analysis, Workflow Analysis &amp; Stakeholder Communication</li>
+            <li>Machine Learning — foundational model building and statistical analysis methods</li>
+            <li>Computer Literacy — Jupyter Notebook, VS Code, Git, Figma</li>
+            <li>Action Planning, Executing Plans, Drives Results, Manages Complexity</li>
+          </ul>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- PROFESSIONAL EXPERIENCE -->
+  <div class="section">
+    <div class="section-title">Professional Experience</div>
+    <ul class="bullet-list">
+      <li>Data Analysis &amp; Dashboard Project — Sol Plaatje University, ICT Diploma Coursework</li>
+      <li>Tutorial Booking System — Sol Plaatje University</li>
+      <li>Legal Assistance Booking App — Sol Plaatje University</li>
+      <li>Sanitary Services Donation Platform — Social Impact Project</li>
+      <li>FNB App of the Year Awards — Academy Participant</li>
+    </ul>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="section">
+    <div class="section-title">Education</div>
+    <ul class="bullet-list">
+      <li>Sol Plaatje University — Diploma in Information and Communication Technology (ICT), 2023–Present</li>
+      <li>Bainsvlei Combined School — National Senior Certificate (Matric), 2019</li>
+    </ul>
+  </div>
+
+  <!-- CERTIFICATIONS & TRAINING -->
+  <div class="section">
+    <div class="section-title">Certifications &amp; Training</div>
+    <table class="two-col">
+      <tr>
+        <td>
+          <ul>
+            <li>FNB App of the Year Awards</li>
+            <li>Oracle Analytics Cloud &nbsp;|&nbsp; Oracle</li>
+            <li>Cloud Database Fundamentals</li>
+            <li>Data Certificate &nbsp;|&nbsp; IBM Skills Build</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>e-Certificate &nbsp;|&nbsp; IBM Skills Build</li>
+            <li>Python 101 for Data Science</li>
+            <li>IBM First Certificate &nbsp;|&nbsp; IBM Skills Build</li>
+            <li>Spark Fundamentals I &nbsp;|&nbsp; IBM Big Data University</li>
+          </ul>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- REFERENCES -->
+  <div class="section">
+    <div class="section-title">References</div>
+
+    <div class="ref-block">
+      <strong>Miss Oratile Molefe — Project Supervisor</strong>
+      Email: <a href="mailto:omolefe743@gmail.com">omolefe743@gmail.com</a> &nbsp;|&nbsp; Phone: 072 375 4357
+    </div>
+
+    <div class="ref-block">
+      <strong>Mr Qolani Truelove Moloi — University Tutor</strong>
+      Email: <a href="mailto:202348544@spu.ac.za">202348544@spu.ac.za</a> &nbsp;|&nbsp; Phone: 0670041827
+    </div>
+  </div>
+
 </body>
 </html>

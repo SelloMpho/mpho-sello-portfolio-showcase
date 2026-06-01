@@ -32,7 +32,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
           {/* Brand */}
           <div data-parallax="0.08">
-            <h3 className="text-2xl font-bold mb-4 text-gradient-animated">Mpho Sello</h3>
+            <h3 className="text-2xl font-bold mb-4 text-gradient">Mpho Sello</h3>
             <p className="text-muted-foreground mb-5 leading-relaxed">
               Aspiring ICT Professional passionate about creating innovative
               solutions through technology and programming.

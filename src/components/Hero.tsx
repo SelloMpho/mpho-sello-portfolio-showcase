@@ -103,12 +103,12 @@ const Hero = () => {
               <span className="h-px w-10 bg-foreground/40" />
               Hi, I'm Mpho Sello
             </div>
-            <h1 className="text-display text-[3rem] sm:text-[4.5rem] lg:text-[6.5rem] font-bold leading-[0.95]">
+            <h1 className="text-display text-[2.6rem] sm:text-[3.6rem] lg:text-[4.6rem] font-bold leading-[0.95]">
               I build <span className="italic font-light text-muted-foreground">intelligent</span>
               <br />
               digital
               <br />
-              <span className="text-gradient-animated">experiences.</span>
+              <span className="text-gradient">web apps.</span>
             </h1>
           </div>
 

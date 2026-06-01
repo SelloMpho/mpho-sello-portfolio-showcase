@@ -14,10 +14,18 @@ const Certificates = () => {
   ];
 
   return (
-    <section id="certificates" className="py-32 section-bg overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="certificates" className="relative py-32 section-bg overflow-hidden">
+      <div
+        data-watermark
+        aria-hidden
+        className="pointer-events-none absolute -top-10 left-0 right-0 text-[20vw] font-bold text-foreground/[0.025] leading-none tracking-tighter whitespace-nowrap select-none"
+        style={{ fontFamily: '"Space Grotesk", sans-serif' }}
+      >
+        CERTIFICATES — AWARDS
+      </div>
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-display text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 text-gradient-animated">
+          <h2 className="text-display text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 text-gradient">
             Certificates & Awards
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
