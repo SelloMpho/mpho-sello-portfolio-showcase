@@ -95,6 +95,7 @@ const Footer = () => {
           <div data-parallax="0.2">
             <h4 className="font-semibold mb-4 text-foreground">Get In Touch</h4>
             <div className="space-y-2 text-muted-foreground">
+              <p>sellompho1601@gmail.com</p>
               <p>202324276@spu.ac.za</p>
               <p>+27 67 668 7955</p>
               <p>Bloemfontein, South Africa</p>

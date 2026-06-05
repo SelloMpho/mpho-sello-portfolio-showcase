@@ -106,9 +106,9 @@ const Hero = () => {
             <h1 className="text-display text-[2.6rem] sm:text-[3.6rem] lg:text-[4.6rem] font-bold leading-[0.95]">
               I build <span className="italic font-light text-muted-foreground">intelligent</span>
               <br />
-              digital
+              analytics &
               <br />
-              <span className="text-gradient">web apps.</span>
+              <span className="text-gradient">data dashboards.</span>
             </h1>
           </div>
 
@@ -129,8 +129,12 @@ const Hero = () => {
           </div>
 
           <p data-parallax="0.22" className="animate-scale-in max-w-xl text-base sm:text-lg text-muted-foreground leading-relaxed">
-            Final-year ICT student passionate about creating innovative solutions through
-            programming, web development, and data analysis. Welcome to my digital portfolio.
+            Final year Information Communication Technology student. Junior Data Analyst in the making.
+            I turn complexity into clarity, one dashboard at a time.
+            With hands-on experience in exploratory analysis, trend reporting,
+            and dashboard development, backed by IBM and Oracle certifications.
+            I bring both the technical skill and the business mindset to the table.
+            Open to junior roles where data drives the decisions.
           </p>
 
           <div className="animate-scale-in flex flex-col sm:flex-row gap-4">

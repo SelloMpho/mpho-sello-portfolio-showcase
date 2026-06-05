@@ -40,13 +40,6 @@ const Contact = () => {
       phone: "+27 72 375 4357"
     },
     {
-      name: "Mr. Tharollo Motaung",
-      position: "Tutor",
-      institution: "Sol Plaatje University",
-      email: "solution211@gmail",
-      phone: "+27 71 454 2800"
-    },
-    {
       name: "Mr. Qolani Moloi",
       position: "Tutor",
       institution: "Sol Plaatje University",

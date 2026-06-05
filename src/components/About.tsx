@@ -44,14 +44,14 @@ const About = () => {
     };
   }, []);
 
-  const languages = ['English', 'Sesotho', 'Xhosa'];
+  const languages = ['English', 'Sesotho', 'Xhosa', 'Zulu', 'Setswana'];
   const softSkills = [
     'Problem Solving',
-    'Team Collaboration',
+    'Cross-functional Collaboration',
     'Critical Thinking',
     'Communication',
     'Adaptability',
-    'Time Management'
+    'Deadline-driven Delivery'
   ];
 
 
@@ -165,8 +165,8 @@ const About = () => {
               <CardContent>
                 <ul className="space-y-2 text-muted-foreground">
                   <li>• Continuous learning and growth</li>
-                  <li>• Innovation through technology</li>
-                  <li>• Collaborative problem-solving</li>
+                  <li>• Data-Driven Innovation</li>
+                  <li>• People Centred Analysis</li>
                   <li>• Ethical and responsible development</li>
                 </ul>
               </CardContent>
@@ -206,7 +206,7 @@ const About = () => {
           </div>
           <div className="text-center">
             <div className="text-3xl font-bold text-primary mb-2 flex items-center justify-center">
-              <NumberTicker value={10} />+
+              <NumberTicker value={5} />+
             </div>
             <div className="text-sm text-muted-foreground">Projects Completed</div>
           </div>
@@ -218,7 +218,7 @@ const About = () => {
           </div>
           <div className="text-center">
             <div className="text-3xl font-bold text-primary mb-2 flex items-center justify-center">
-              <NumberTicker value={5} />+
+              <NumberTicker value={7} />+
             </div>
             <div className="text-sm text-muted-foreground">Certifications</div>
           </div>
