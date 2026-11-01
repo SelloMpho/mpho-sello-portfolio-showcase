@@ -118,18 +118,15 @@ const About = () => {
                 Profile Summary
               </h3>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Final-year ICT Diploma student with a strong foundation in data analysis, business
-                intelligence, and AI-driven decision-making, seeking to grow into a Data Analyst role
-                through a structured, rotational development environment. Hands-on experience across the
-                full analytics lifecycle — data cleaning, SQL querying, DAX modelling, and Power BI
-                dashboard design — applied to real-world and public datasets. Certified across IBM
-                Skills Build and Oracle Analytics Cloud, with exposure to cloud data concepts and a
-                self-driven, methodical approach to mastering new tools.
+                Data Analyst skilled in Excel, SQL, and Python, with practical experience cleaning,
+                analyzing, and reconciling complex datasets for local and international clients.
+                Experienced in handling missing values, building data validation checks, identifying
+                discrepancies, and transforming raw data into meaningful insights on sales performance,
+                customer behavior, payment trends, and business performance.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed mt-6">
-                Actively builds and maintains independent technology platforms, demonstrating the
-                initiative, curiosity, and cross-functional problem-solving mindset needed to thrive
-                across data, engineering, and AI disciplines.
+                Certified through IBM Skills Build and Oracle Analytics Cloud, with Power BI currently
+                in progress.
               </p>
             </div>
 
