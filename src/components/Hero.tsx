@@ -129,12 +129,15 @@ const Hero = () => {
           </div>
 
           <p data-parallax="0.22" className="animate-scale-in max-w-xl text-base sm:text-lg text-muted-foreground leading-relaxed">
-            Final year Information Communication Technology student. Junior Data Analyst in the making.
-            I turn complexity into clarity, one dashboard at a time.
-            With hands-on experience in exploratory analysis, trend reporting,
-            and dashboard development, backed by IBM and Oracle certifications.
-            I bring both the technical skill and the business mindset to the table.
-            Open to junior roles where data drives the decisions.
+            Final-year ICT Diploma student with a strong foundation in data analysis, business intelligence,
+            and AI-driven decision-making, seeking to grow into a Data Analyst role through a structured,
+            rotational development environment. Hands-on experience across the full analytics lifecycle —
+            data cleaning, SQL querying, DAX modelling, and Power BI dashboard design — applied to
+            real-world and public datasets. Certified across IBM Skills Build and Oracle Analytics Cloud,
+            with exposure to cloud data concepts and a self-driven, methodical approach to mastering new
+            tools. Actively builds and maintains independent technology platforms, demonstrating the
+            initiative, curiosity, and cross-functional problem-solving mindset needed to thrive across
+            data, engineering, and AI disciplines.
           </p>
 
           <div className="animate-scale-in flex flex-col sm:flex-row gap-4">

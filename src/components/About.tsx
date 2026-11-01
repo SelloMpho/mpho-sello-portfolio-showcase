@@ -117,18 +117,19 @@ const About = () => {
                 <User className="mr-3 h-6 w-6 text-primary" />
                 Profile Summary
               </h3>
-              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                I'm a dedicated final-year ICT student at Sol Plaatje University with a passion 
-                for technology and innovation. My journey in information and communication technology 
-                has equipped me with a diverse skill set spanning programming, web development, 
-                and data analysis.
-              </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                I thrive on solving complex problems through code, data analysis, and 
-                creating digital solutions that make a meaningful impact. 
-                My goal is to leverage technology to build applications and 
-                uncover insights through data that improve people's lives and 
-                contribute to the digital transformation of our society.
+                Final-year ICT Diploma student with a strong foundation in data analysis, business
+                intelligence, and AI-driven decision-making, seeking to grow into a Data Analyst role
+                through a structured, rotational development environment. Hands-on experience across the
+                full analytics lifecycle — data cleaning, SQL querying, DAX modelling, and Power BI
+                dashboard design — applied to real-world and public datasets. Certified across IBM
+                Skills Build and Oracle Analytics Cloud, with exposure to cloud data concepts and a
+                self-driven, methodical approach to mastering new tools.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed mt-6">
+                Actively builds and maintains independent technology platforms, demonstrating the
+                initiative, curiosity, and cross-functional problem-solving mindset needed to thrive
+                across data, engineering, and AI disciplines.
               </p>
             </div>
 
