@@ -110,7 +110,7 @@ const Contact = () => {
                   <Button 
                     variant="outline" 
                     size="lg"
-                    onClick={() => window.open('https://github.com/SelloMpho?tab=projects', '_blank')}
+                    onClick={() => window.open('https://github.com/Sellomphoo', '_blank')}
                   >
                     <Github className="h-5 w-5 mr-2" />
                     GitHub

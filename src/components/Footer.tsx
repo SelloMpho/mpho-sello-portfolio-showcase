@@ -47,7 +47,7 @@ const Footer = () => {
                 <Linkedin className="h-5 w-5" />
               </a>
               <a
-                href="https://github.com/SelloMpho?tab=projects"
+                href="https://github.com/Sellomphoo"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2.5 rounded-lg border border-border/50 bg-card/40 backdrop-blur-md hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
