@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Linkedin, Github, Eye, EyeOff } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Linkedin, Github } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -13,7 +12,6 @@ const Contact = () => {
     subject: '',
     message: ''
   });
-  const [showReferences, setShowReferences] = useState(false);
   const { toast } = useToast();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -31,24 +29,8 @@ const Contact = () => {
     setFormData({ name: '', email: '', subject: '', message: '' });
   };
 
-  const references = [
-    {
-      name: "Miss Oratile Molefe",
-      position: "Project Supervisor",
-      institution: "Sol Plaatje University",
-      email: "202307080@spu.ac.za",
-      phone: "+27 72 375 4357"
-    },
-    {
-      name: "Mr. Qolani Moloi",
-      position: "Tutor",
-      institution: "Sol Plaatje University",
-      email: "202348544@spu.ac.za",
-      phone: "+27 67 044 1827"
-    }
-  ];
-
   return (
+
     <section id="contact" className="relative py-32 section-bg overflow-hidden">
       <div
         data-watermark
