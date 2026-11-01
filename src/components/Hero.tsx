@@ -81,7 +81,7 @@ const Hero = () => {
             <a href="https://www.linkedin.com/in/mpho-sello-692193241" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
               <Linkedin className="h-4 w-4" />
             </a>
-            <a href="https://github.com/SelloMpho?tab=projects" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
+            <a href="https://github.com/Sellomphoo" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
               <Github className="h-4 w-4" />
             </a>
             <a href="#" className="hover:text-foreground transition-colors">
