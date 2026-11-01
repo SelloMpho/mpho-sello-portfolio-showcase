@@ -1,4 +1,4 @@
-import type { ComponentType } from 'react';
+import type { ComponentType, CSSProperties } from 'react';
 import {
   FaPython,
   FaJava,
@@ -15,7 +15,7 @@ import {
 import { SiTypescript } from 'react-icons/si';
 
 type SkillItem = {
-  icon: ComponentType<{ className?: string }>;
+  icon: ComponentType<{ className?: string; style?: CSSProperties }>;
   name: string;
   color: string;
 };

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Linkedin, Github, Eye, EyeOff } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Linkedin, Github } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -13,7 +13,6 @@ const Contact = () => {
     subject: '',
     message: ''
   });
-  const [showReferences, setShowReferences] = useState(false);
   const { toast } = useToast();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -31,24 +30,8 @@ const Contact = () => {
     setFormData({ name: '', email: '', subject: '', message: '' });
   };
 
-  const references = [
-    {
-      name: "Miss Oratile Molefe",
-      position: "Project Supervisor",
-      institution: "Sol Plaatje University",
-      email: "202307080@spu.ac.za",
-      phone: "+27 72 375 4357"
-    },
-    {
-      name: "Mr. Qolani Moloi",
-      position: "Tutor",
-      institution: "Sol Plaatje University",
-      email: "202348544@spu.ac.za",
-      phone: "+27 67 044 1827"
-    }
-  ];
-
   return (
+
     <section id="contact" className="relative py-32 section-bg overflow-hidden">
       <div
         data-watermark
@@ -139,41 +122,12 @@ const Contact = () => {
             {/* References */}
             <Card className="project-card">
               <CardHeader>
-                <CardTitle className="flex items-center justify-between">
-                  Professional References
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => setShowReferences(!showReferences)}
-                  >
-                    {showReferences ? (
-                      <EyeOff className="h-4 w-4" />
-                    ) : (
-                      <Eye className="h-4 w-4" />
-                    )}
-                  </Button>
-                </CardTitle>
+                <CardTitle>Professional References</CardTitle>
               </CardHeader>
               <CardContent>
-                {showReferences ? (
-                  <div className="space-y-4">
-                    {references.map((ref, index) => (
-                      <div key={index} className="border-l-4 border-primary pl-4">
-                        <h4 className="font-semibold">{ref.name}</h4>
-                        <p className="text-sm text-muted-foreground">{ref.position}</p>
-                        <p className="text-sm text-muted-foreground">{ref.institution}</p>
-                        <div className="mt-2 space-y-1">
-                          <p className="text-xs text-muted-foreground">{ref.email}</p>
-                          <p className="text-xs text-muted-foreground">{ref.phone}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                ) : (
-                  <p className="text-muted-foreground">
-                    Click to view professional references available upon request.
-                  </p>
-                )}
+                <p className="text-muted-foreground">
+                  Available upon request.
+                </p>
               </CardContent>
             </Card>
           </div>
