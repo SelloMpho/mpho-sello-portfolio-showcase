@@ -15,7 +15,7 @@ import {
 import { SiTypescript } from 'react-icons/si';
 
 type SkillItem = {
-  icon: ComponentType<{ className?: string }>;
+  icon: ComponentType<{ className?: string; style?: CSSProperties }>;
   name: string;
   color: string;
 };
