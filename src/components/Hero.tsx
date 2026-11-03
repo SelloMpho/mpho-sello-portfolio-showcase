@@ -166,7 +166,8 @@ const Hero = () => {
             className="relative w-full max-w-md mx-auto will-change-transform"
           >
             <TiltedCard
-              imageSrc={heroImage}
+              priority
+              imageSrc="/images/hero-portrait.webp"
               altText="Mpho Sello portrait"
               captionText="Mpho Sello — ICT"
               containerHeight="520px"
