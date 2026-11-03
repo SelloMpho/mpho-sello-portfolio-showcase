@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { ArrowDown, Download, Github, Linkedin, Mail, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import heroImage from '@/assets/portfolio-hero.jpg';
 import TiltedCard from '@/components/TiltedCard';
 
 const ROLES = [

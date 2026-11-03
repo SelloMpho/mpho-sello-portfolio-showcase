@@ -16,6 +16,8 @@ interface TiltedCardProps {
   showTooltip?: boolean;
   overlayContent?: React.ReactNode;
   displayOverlayContent?: boolean;
+  /** Mark as the page's largest contentful paint candidate */
+  priority?: boolean;
 }
 
 const springValues: SpringOptions = {
@@ -38,6 +40,7 @@ export default function TiltedCard({
   showTooltip = true,
   overlayContent = null,
   displayOverlayContent = false,
+  priority = false,
 }: TiltedCardProps) {
   const ref = useRef<HTMLElement>(null);
 
@@ -110,6 +113,9 @@ export default function TiltedCard({
         <motion.img
           src={imageSrc}
           alt={altText}
+          loading={priority ? 'eager' : 'lazy'}
+          fetchPriority={priority ? 'high' : 'auto'}
+          decoding="async"
           className="absolute top-0 left-0 object-cover rounded-[15px] will-change-transform [transform:translateZ(0)]"
           style={{ width: imageWidth, height: imageHeight }}
         />
