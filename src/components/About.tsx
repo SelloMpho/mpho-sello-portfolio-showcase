@@ -2,7 +2,6 @@ import { useEffect, useRef } from 'react';
 import { Globe, Heart, MessageCircle, User } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { NumberTicker } from '@/components/ui/number-ticker';
-import aboutPortrait from '@/assets/about-portrait.png';
 
 const About = () => {
   const portraitRef = useRef<HTMLDivElement>(null);
@@ -94,12 +93,16 @@ const About = () => {
                 ref={portraitImageRef}
                 className="relative aspect-[4/5] w-full transition-transform duration-500 ease-out will-change-transform"
                 style={{
-                  backgroundImage: `url(${aboutPortrait})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
                   transform: 'scale(1.05)',
                 }}
               >
+                <img
+                  src="/images/about-portrait.webp"
+                  alt="Mpho Sello portrait"
+                  loading="lazy"
+                  decoding="async"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
                 <div className="absolute inset-0 bg-background/20"></div>
               </div>
             </div>

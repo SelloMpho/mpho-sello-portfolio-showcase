@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { ArrowDown, Download, Github, Linkedin, Mail, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import heroImage from '@/assets/portfolio-hero.jpg';
 import TiltedCard from '@/components/TiltedCard';
 
 const ROLES = [
@@ -167,7 +166,8 @@ const Hero = () => {
             className="relative w-full max-w-md mx-auto will-change-transform"
           >
             <TiltedCard
-              imageSrc={heroImage}
+              priority
+              imageSrc="/images/hero-portrait.webp"
               altText="Mpho Sello portrait"
               captionText="Mpho Sello — ICT"
               containerHeight="520px"
