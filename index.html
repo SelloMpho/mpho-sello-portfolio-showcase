@@ -15,16 +15,37 @@
     <meta name="twitter:card" content="summary_large_image" />
 
 
-    <link rel="icon" href="/favicon.png" type="image/png" />
+    <link rel="icon" href="/favicon.ico" type="image/png" />
+
+    <!-- LCP portrait: preload so the hero image renders on first paint -->
+    <link rel="preload" as="image" href="/images/hero-portrait.webp" fetchpriority="high" type="image/webp" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- Non-blocking font stylesheet: loads in parallel, swaps in without delay -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" /></noscript>
   </head>
 
   <body class="bg-[#050505]">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <script src="//code.tidio.co/ehwykfg4aqwvtvmpy9riwpqvhctvhjwn.js" async></script>
+    <!-- Chat widget loads only after the page is fully interactive -->
+    <script>
+      (function () {
+        var load = function () {
+          var s = document.createElement('script');
+          s.src = '//code.tidio.co/ehwykfg4aqwvtvmpy9riwpqvhctvhjwn.js';
+          s.async = true;
+          document.body.appendChild(s);
+        };
+        if ('requestIdleCallback' in window) {
+          addEventListener('load', function () { requestIdleCallback(load, { timeout: 4000 }); });
+        } else {
+          addEventListener('load', function () { setTimeout(load, 3000); });
+        }
+      })();
+    </script>
   </body>
 </html>
