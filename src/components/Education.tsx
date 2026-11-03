@@ -15,16 +15,23 @@ const Education = () => {
   const educationHistory: EducationItem[] = [
     {
       institution: "Sol Plaatje University",
-      degree: "Diploma in Information and Communication Technology",
-      period: "2023 - Present",
-      status: "Final Year",
-      location: "Kimberley, South Africa",
+      degree: "Information Technology (Software Development)",
+      period: "2026 - Graduating 2027",
+      status: "Coursework Completed",
+      location: "Kimberley, Northern Cape",
       description: "Comprehensive ICT program focusing on software and application development, database management, web technologies, and data analysis.",
       achievements: [
-        "Specialization in Software and Application Development",
-        "Database Management Systems",
-        "Web Development Technologies",
-        "Data Analysis and Design"
+        "Data Analysis and Visualization",
+        "Big Data Programming",
+        "Software Engineering",
+        "Web Development",
+        "Mobile App Development",
+        "Information Systems",
+        "Networking",
+        "Project Management",
+        "ICT Fundamentals",
+        "Business Practice",
+        "Professional Communication"
       ]
     },
     {
