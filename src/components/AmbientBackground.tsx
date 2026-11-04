@@ -5,6 +5,8 @@ import { useEffect, useRef } from 'react';
  *  - Soft gradient orbs (cyan + magenta) that drift slowly
  *  - Thin grid overlay
  *  - Cursor-following glow for immersion
+ *  All glows use radial-gradient falloff instead of CSS blur filters —
+ *  visually identical and far cheaper to paint.
  */
 const AmbientBackground = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
@@ -53,24 +55,24 @@ const AmbientBackground = () => {
       {/* Gradient orbs */}
       <div
         data-parallax="-0.15"
-        className="absolute -top-40 -left-40 h-[42rem] w-[42rem] rounded-full blur-[140px] opacity-30"
+        className="absolute -top-40 -left-40 h-[42rem] w-[42rem] rounded-full opacity-30"
         style={{ background: 'radial-gradient(circle, hsl(190 90% 55% / 0.6), transparent 60%)' }}
       />
       <div
         data-parallax="-0.25"
-        className="absolute top-1/3 -right-40 h-[36rem] w-[36rem] rounded-full blur-[140px] opacity-25"
+        className="absolute top-1/3 -right-40 h-[36rem] w-[36rem] rounded-full opacity-25"
         style={{ background: 'radial-gradient(circle, hsl(280 80% 60% / 0.55), transparent 60%)' }}
       />
       <div
         data-parallax="-0.1"
-        className="absolute bottom-0 left-1/3 h-[30rem] w-[30rem] rounded-full blur-[120px] opacity-20"
+        className="absolute bottom-0 left-1/3 h-[30rem] w-[30rem] rounded-full opacity-20"
         style={{ background: 'radial-gradient(circle, hsl(220 90% 55% / 0.5), transparent 60%)' }}
       />
 
       {/* Cursor follow glow */}
       <div
         ref={cursorRef}
-        className="absolute h-[600px] w-[600px] rounded-full blur-[120px] opacity-20 will-change-transform"
+        className="absolute h-[600px] w-[600px] rounded-full opacity-20 will-change-transform"
         style={{ background: 'radial-gradient(circle, hsl(190 100% 70% / 0.5), transparent 60%)' }}
       />
     </div>

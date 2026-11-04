@@ -31,20 +31,23 @@
   <body class="bg-[#050505]">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <!-- Chat widget loads only after the page is fully interactive -->
+    <!-- Chat widget loads only after the first user interaction -->
     <script>
       (function () {
+        var loaded = false;
         var load = function () {
+          if (loaded) return;
+          loaded = true;
           var s = document.createElement('script');
           s.src = '//code.tidio.co/ehwykfg4aqwvtvmpy9riwpqvhctvhjwn.js';
           s.async = true;
           document.body.appendChild(s);
         };
-        if ('requestIdleCallback' in window) {
-          addEventListener('load', function () { requestIdleCallback(load, { timeout: 4000 }); });
-        } else {
-          addEventListener('load', function () { setTimeout(load, 3000); });
-        }
+        var kick = function () { load(); };
+        ['pointerdown', 'pointermove', 'touchstart', 'scroll', 'keydown', 'wheel'].forEach(function (evt) {
+          addEventListener(evt, kick, { once: true, passive: true });
+        });
+        addEventListener('load', function () { setTimeout(kick, 12000); });
       })();
     </script>
   </body>

@@ -12,7 +12,10 @@ gsap.registerPlugin(ScrollTrigger);
  */
 const ScrollAnimations = () => {
   useEffect(() => {
-    const ctx = gsap.context(() => {
+    let ctx: gsap.Context | undefined;
+    // Defer one frame so the first paint isn't blocked by animation setup
+    const rafId = requestAnimationFrame(() => {
+      ctx = gsap.context(() => {
       // -------- Global parallax engine --------
       const parallaxEls = gsap.utils.toArray<HTMLElement>('[data-parallax]');
       parallaxEls.forEach((el) => {
@@ -154,10 +157,14 @@ const ScrollAnimations = () => {
       // Contact
       stagger('#contact .grid > *', { y: 18, stagger: 0.1 });
 
-      ScrollTrigger.refresh();
+        ScrollTrigger.refresh();
+      });
     });
 
-    return () => ctx.revert();
+    return () => {
+      cancelAnimationFrame(rafId);
+      ctx?.revert();
+    };
   }, []);
 
   return null;
