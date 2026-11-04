@@ -86,7 +86,7 @@ const About = () => {
             <div
               ref={portraitGlowRef}
               aria-hidden
-              className="pointer-events-none absolute -inset-10 -z-10 rounded-[2rem] bg-[radial-gradient(circle_at_center,hsl(var(--primary)/0.35),transparent_60%)] blur-3xl transition-transform duration-500 ease-out will-change-transform"
+              className="pointer-events-none absolute -inset-10 -z-10 rounded-[2rem] bg-[radial-gradient(circle_at_center,hsl(var(--primary)/0.35),transparent_70%)] transition-transform duration-500 ease-out will-change-transform"
             />
             <div className="relative rounded-2xl overflow-hidden shadow-2xl ring-1 ring-border/40">
               <div

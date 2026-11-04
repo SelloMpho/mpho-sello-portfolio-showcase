@@ -68,7 +68,7 @@ const Hero = () => {
       <div
         ref={glowRef}
         aria-hidden
-        className="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 h-[80vh] w-[80vh] rounded-full blur-[120px] opacity-40 will-change-transform"
+        className="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 h-[80vh] w-[80vh] rounded-full opacity-40 will-change-transform"
         style={{ background: 'radial-gradient(circle, hsl(190 90% 60% / 0.35), transparent 60%)' }}
       />
 
