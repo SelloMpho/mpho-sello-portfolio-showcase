@@ -4,166 +4,176 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-/**
- * Centralized GSAP ScrollTrigger animations + parallax engine.
- * - Any element with [data-parallax="<speed>"] gets a yPercent shift based on scroll.
- *   speed > 0 = moves slower (background), speed < 0 = moves opposite/foreground.
- * - Section headings, watermarks, and content reveal on scroll.
- */
-const ScrollAnimations = () => {
-  useEffect(() => {
-    let ctx: gsap.Context | undefined;
-    // Defer one frame so the first paint isn't blocked by animation setup
-    const rafId = requestAnimationFrame(() => {
-      ctx = gsap.context(() => {
-      // -------- Global parallax engine --------
-      const parallaxEls = gsap.utils.toArray<HTMLElement>('[data-parallax]');
-      parallaxEls.forEach((el) => {
-        const speed = parseFloat(el.dataset.parallax || '0.2');
-        gsap.to(el, {
-          yPercent: speed * 100,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: el,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: true,
-          },
-        });
-      });
+/** Elements already animated — guards against double-creating triggers
+ *  when new sections mount after the initial page load. */
+const processed = new WeakSet<Element>();
 
-      // Watermark horizontal drift
-      gsap.utils.toArray<HTMLElement>('[data-watermark]').forEach((el) => {
-        gsap.to(el, {
-          xPercent: -15,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: el.closest('section') || el,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: true,
-          },
-        });
-      });
+const initAll = () => {
+  // -------- Global parallax engine --------
+  gsap.utils.toArray<HTMLElement>('[data-parallax]').forEach((el) => {
+    if (processed.has(el)) return;
+    processed.add(el);
+    const speed = parseFloat(el.dataset.parallax || '0.2');
+    gsap.to(el, {
+      yPercent: speed * 100,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: el,
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: true,
+      },
+    });
+  });
 
-      const fadeUp = (el: Element | null, opts: gsap.TweenVars = {}) => {
-        if (!el) return;
-        gsap.from(el, {
-          y: 24,
-          opacity: 0,
-          duration: 0.6,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: el,
-            start: 'top 85%',
-            toggleActions: 'play none none reverse',
-          },
-          ...opts,
-        });
-      };
+  // Watermark horizontal drift
+  gsap.utils.toArray<HTMLElement>('[data-watermark]').forEach((el) => {
+    if (processed.has(el)) return;
+    processed.add(el);
+    gsap.to(el, {
+      xPercent: -15,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: el.closest('section') || el,
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: true,
+      },
+    });
+  });
 
-      const stagger = (selector: string, opts: gsap.TweenVars = {}) => {
-        const items = gsap.utils.toArray<Element>(selector);
-        if (!items.length) return;
-        gsap.from(items, {
-          y: 28,
-          opacity: 0,
-          duration: 0.65,
-          ease: 'power2.out',
-          stagger: 0.08,
-          scrollTrigger: {
-            trigger: items[0],
-            start: 'top 85%',
-            toggleActions: 'play none none reverse',
-          },
-          ...opts,
-        });
-      };
-
-      // Section headings — fade-up + horizontal slide
-      gsap.utils.toArray<HTMLElement>('section h2.text-display').forEach((h) => {
-        gsap.from(h, {
-          y: 24,
-          x: -12,
-          opacity: 0,
-          duration: 0.7,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: h,
-            start: 'top 85%',
-            toggleActions: 'play none none reverse',
-          },
-        });
-        const sub = h.parentElement?.querySelector('p');
-        if (sub) {
-          gsap.from(sub, {
-            y: 14,
-            opacity: 0,
-            duration: 0.55,
-            delay: 0.05,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: h,
-              start: 'top 85%',
-              toggleActions: 'play none none reverse',
-            },
-          });
-        }
-      });
-
-      // About
-      stagger('#about .space-y-8 > div');
-      stagger('#about .space-y-6 > *', { x: 24, y: 0 });
-      stagger('#about .mt-16 > div', { y: 18, stagger: 0.08 });
-
-      // Projects — visible cards with subtle stagger
-      gsap.set('#projects .grid > *', { opacity: 1, y: 0, clearProps: 'visibility' });
-      gsap.from('#projects .grid > *', {
-        y: 28,
+  // Section headings — fade-up + horizontal slide
+  gsap.utils.toArray<HTMLElement>('section h2.text-display').forEach((h) => {
+    if (processed.has(h)) return;
+    processed.add(h);
+    gsap.from(h, {
+      y: 24,
+      x: -12,
+      opacity: 0,
+      duration: 0.7,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: h,
+        start: 'top 85%',
+        toggleActions: 'play none none reverse',
+      },
+    });
+    const sub = h.parentElement?.querySelector('p');
+    if (sub && !processed.has(sub)) {
+      processed.add(sub);
+      gsap.from(sub, {
+        y: 14,
         opacity: 0,
-        scale: 0.98,
-        duration: 0.7,
+        duration: 0.55,
+        delay: 0.05,
         ease: 'power2.out',
-        stagger: 0.1,
         scrollTrigger: {
-          trigger: '#projects .grid',
-          start: 'top 80%',
+          trigger: h,
+          start: 'top 85%',
           toggleActions: 'play none none reverse',
         },
       });
+    }
+  });
 
-      // Certificates — staggered reveal
-      stagger('#certificates .grid > a', { y: 18, scale: 0.98, stagger: 0.06 });
+  const stagger = (selector: string, opts: gsap.TweenVars = {}) => {
+    const items = gsap.utils.toArray<Element>(selector).filter((el) => !processed.has(el));
+    if (!items.length) return;
+    items.forEach((el) => processed.add(el));
+    gsap.from(items, {
+      y: 28,
+      opacity: 0,
+      duration: 0.65,
+      ease: 'power2.out',
+      stagger: 0.08,
+      scrollTrigger: {
+        trigger: items[0],
+        start: 'top 85%',
+        toggleActions: 'play none none reverse',
+      },
+      ...opts,
+    });
+  };
 
-      // Education — alternating slide-in
-      gsap.utils.toArray<HTMLElement>('#education .space-y-12 > div').forEach((row, i) => {
-        gsap.from(row, {
-          x: i % 2 === 0 ? -28 : 28,
-          opacity: 0,
-          duration: 0.7,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: row,
-            start: 'top 80%',
-            toggleActions: 'play none none reverse',
-          },
-        });
-      });
-      stagger('#education .mt-20 > *');
+  // About
+  stagger('#about .space-y-8 > div');
+  stagger('#about .space-y-6 > *', { x: 24, y: 0 });
+  stagger('#about .mt-16 > div', { y: 18, stagger: 0.08 });
 
-      // Skills — standard in-view reveal
-      stagger('#skills .skills-grid > *', { y: 18, stagger: 0.06 });
+  // Projects — visible cards with subtle stagger
+  const projectCards = gsap.utils.toArray<Element>('#projects .grid > *').filter((el) => !processed.has(el));
+  if (projectCards.length) {
+    projectCards.forEach((el) => processed.add(el));
+    gsap.set(projectCards, { opacity: 1, y: 0, clearProps: 'visibility' });
+    gsap.from(projectCards, {
+      y: 28,
+      opacity: 0,
+      scale: 0.98,
+      duration: 0.7,
+      ease: 'power2.out',
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: '#projects .grid',
+        start: 'top 80%',
+        toggleActions: 'play none none reverse',
+      },
+    });
+  }
 
-      // Contact
-      stagger('#contact .grid > *', { y: 18, stagger: 0.1 });
+  // Certificates — staggered reveal
+  stagger('#certificates .grid > div', { y: 18, scale: 0.98, stagger: 0.06 });
 
-        ScrollTrigger.refresh();
-      });
+  // Education — alternating slide-in
+  gsap.utils.toArray<HTMLElement>('#education .space-y-12 > div').forEach((row) => {
+    if (processed.has(row)) return;
+    processed.add(row);
+    gsap.from(row, {
+      x: gsap.utils.toArray<HTMLElement>('#education .space-y-12 > div').indexOf(row) % 2 === 0 ? -28 : 28,
+      opacity: 0,
+      duration: 0.7,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: row,
+        start: 'top 80%',
+        toggleActions: 'play none none reverse',
+      },
+    });
+  });
+  stagger('#education .mt-20 > *');
+
+  // Skills — standard in-view reveal
+  stagger('#skills .skills-grid > *', { y: 18, stagger: 0.06 });
+
+  // Contact
+  stagger('#contact .grid > *', { y: 18, stagger: 0.1 });
+
+  ScrollTrigger.refresh();
+};
+
+/**
+ * Centralized GSAP ScrollTrigger animations + parallax engine.
+ * Re-runs (guarded) whenever new sections mount, so lazily-loaded
+ * sections still get their reveal animations.
+ */
+const ScrollAnimations = () => {
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Defer one frame so the first paint isn't blocked by animation setup
+      requestAnimationFrame(initAll);
     });
 
+    // Lazily-mounted sections arrive later — pick them up when they do
+    let timer = 0;
+    const mo = new MutationObserver(() => {
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() => ctx.add(initAll), 150);
+    });
+    mo.observe(document.body, { childList: true, subtree: true });
+
     return () => {
-      cancelAnimationFrame(rafId);
-      ctx?.revert();
+      window.clearTimeout(timer);
+      mo.disconnect();
+      ctx.revert();
     };
   }, []);
 
