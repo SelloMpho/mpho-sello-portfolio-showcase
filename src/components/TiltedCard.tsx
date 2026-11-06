@@ -101,7 +101,7 @@ export default function TiltedCard({
           src={imageSrc}
           alt={altText}
           loading={priority ? 'eager' : 'lazy'}
-          fetchpriority={priority ? "high" : undefined}
+          {...(priority ? { fetchpriority: 'high' } : {})}
           decoding="async"
           className="absolute top-0 left-0 object-cover rounded-[15px] will-change-transform [transform:translateZ(0)]"
           style={{ width: imageWidth, height: imageHeight }}
