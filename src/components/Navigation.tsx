@@ -29,6 +29,7 @@ const Navigation = () => {
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
+      window.dispatchEvent(new CustomEvent('portfolio:activate-section', { detail: { id: href.slice(1) } }));
       element.scrollIntoView({ behavior: 'smooth' });
       setIsOpen(false);
     }

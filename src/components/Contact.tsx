@@ -32,7 +32,7 @@ const Contact = () => {
 
   return (
 
-    <section id="contact" className="relative py-32 section-bg overflow-hidden">
+    <section className="relative py-32 section-bg overflow-hidden">
       <div
         data-watermark
         aria-hidden

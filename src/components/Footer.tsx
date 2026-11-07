@@ -79,6 +79,7 @@ const Footer = () => {
                     onClick={() => {
                       const element = document.querySelector(link.href);
                       if (element) {
+                        window.dispatchEvent(new CustomEvent('portfolio:activate-section', { detail: { id: link.href.slice(1) } }));
                         element.scrollIntoView({ behavior: 'smooth' });
                       }
                     }}

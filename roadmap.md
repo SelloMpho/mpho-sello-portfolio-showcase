@@ -1,0 +1,3 @@
+- [ ] Defer below-the-fold portfolio sections while preserving anchors and scroll effects.
+- [ ] Verify all section navigation, direct links, and loading on a throttled mobile connection.
+- [ ] Review the production Lighthouse results and report any hosting-only cache limits.

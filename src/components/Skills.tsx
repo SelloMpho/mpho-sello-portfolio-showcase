@@ -71,7 +71,7 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="relative py-32 section-bg overflow-hidden">
+    <section className="relative py-32 section-bg overflow-hidden">
       <div
         data-watermark
         aria-hidden

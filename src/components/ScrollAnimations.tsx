@@ -4,11 +4,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-/** Elements already animated — guards against double-creating triggers
- *  when new sections mount after the initial page load. */
-const processed = new WeakSet<Element>();
-
-const initAll = () => {
+/** Elements already animated — guards against duplicate triggers per mount. */
+const initAll = (processed: WeakSet<Element>) => {
   // -------- Global parallax engine --------
   gsap.utils.toArray<HTMLElement>('[data-parallax]').forEach((el) => {
     if (processed.has(el)) return;
@@ -157,20 +154,22 @@ const initAll = () => {
  */
 const ScrollAnimations = () => {
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Defer one frame so the first paint isn't blocked by animation setup
-      requestAnimationFrame(initAll);
-    });
+    const processed = new WeakSet<Element>();
+    const ctx = gsap.context(() => {});
+    let frame = 0;
+    let timer = 0;
+    // Defer one frame so the first paint isn't blocked by animation setup.
+    frame = requestAnimationFrame(() => ctx.add(() => initAll(processed)));
 
     // Lazily-mounted sections arrive later — pick them up when they do
-    let timer = 0;
     const mo = new MutationObserver(() => {
       window.clearTimeout(timer);
-      timer = window.setTimeout(() => ctx.add(initAll), 150);
+      timer = window.setTimeout(() => ctx.add(() => initAll(processed)), 100);
     });
     mo.observe(document.body, { childList: true, subtree: true });
 
     return () => {
+      cancelAnimationFrame(frame);
       window.clearTimeout(timer);
       mo.disconnect();
       ctx.revert();
