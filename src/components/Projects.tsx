@@ -80,7 +80,7 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="relative py-32 bg-background overflow-hidden">
+    <section className="relative py-32 bg-background overflow-hidden">
       <div
         data-watermark
         aria-hidden

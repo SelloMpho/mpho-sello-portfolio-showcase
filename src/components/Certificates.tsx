@@ -73,7 +73,7 @@ const LazyCertificateCard = ({ name, pdf }: { name: string; pdf: string }) => {
 
 const Certificates = () => {
   return (
-    <section id="certificates" className="relative py-32 section-bg overflow-hidden">
+    <section className="relative py-32 section-bg overflow-hidden">
       <div
         data-watermark
         aria-hidden

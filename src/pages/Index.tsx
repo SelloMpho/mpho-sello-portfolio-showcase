@@ -1,15 +1,18 @@
+import { lazy } from 'react';
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
-import Projects from '@/components/Projects';
-import Skills from '@/components/Skills';
-import Certificates from '@/components/Certificates';
-import Education from '@/components/Education';
-import Contact from '@/components/Contact';
-import Footer from '@/components/Footer';
+import DeferredSection from '@/components/DeferredSection';
 import ScrollAnimations from '@/components/ScrollAnimations';
 import ScrollProgress from '@/components/ScrollProgress';
 import AmbientBackground from '@/components/AmbientBackground';
+
+const Projects = lazy(() => import('@/components/Projects'));
+const Skills = lazy(() => import('@/components/Skills'));
+const Certificates = lazy(() => import('@/components/Certificates'));
+const Education = lazy(() => import('@/components/Education'));
+const Contact = lazy(() => import('@/components/Contact'));
+const Footer = lazy(() => import('@/components/Footer'));
 
 const Index = () => {
   return (
@@ -21,12 +24,12 @@ const Index = () => {
         <Navigation />
         <Hero />
         <About />
-        <Projects />
-        <Skills />
-        <Certificates />
-        <Education />
-        <Contact />
-        <Footer />
+        <DeferredSection id="projects" Component={Projects} minHeightClass="min-h-[1250px] lg:min-h-[950px]" />
+        <DeferredSection id="skills" Component={Skills} minHeightClass="min-h-[650px]" />
+        <DeferredSection id="certificates" Component={Certificates} minHeightClass="min-h-[1200px] lg:min-h-[1000px]" />
+        <DeferredSection id="education" Component={Education} minHeightClass="min-h-[2000px] lg:min-h-[1600px]" />
+        <DeferredSection id="contact" Component={Contact} minHeightClass="min-h-[1500px] lg:min-h-[1200px]" />
+        <DeferredSection id="footer" Component={Footer} minHeightClass="min-h-[420px]" />
       </div>
     </div>
   );
